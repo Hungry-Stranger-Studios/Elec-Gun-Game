@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class TurretScript : MonoBehaviour
 {
-    [SerializeField][Header("Projectile that gets launched from turret.")] private GameObject projectilePrefab;
-    [SerializeField][Header("Barrel of the turret that the projectile spawns from.")] private Transform shootPoint;                                    //Point where projectile comes from
-    [SerializeField][Header("Sprite of the turret.")] private SpriteRenderer turretSprite;
-    [SerializeField][Header("Point of rotation for turret barrel.")] private Transform turretParent;
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Transform shootPoint;                                    //Point where projectile comes from
+    [SerializeField] private SpriteRenderer turretSprite;
+    [SerializeField] private Transform turretParent;
 
     [SerializeField] private float projectileSpeed = 3f;
     [SerializeField] private float timeBetweenShots = 2f;

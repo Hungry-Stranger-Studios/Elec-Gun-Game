@@ -1,16 +1,17 @@
 {
   "dependencies": {
     "com.seanba.super-tiled2unity": {
-      "version": "file:C:/Users/keery/Downloads/super-tiled2unity.v2.2.1",
+      "version": "https://github.com/Seanba/SuperTiled2Unity.git?path=/SuperTiled2Unity/Packages/com.seanba.super-tiled2unity/",
       "depth": 0,
-      "source": "local",
+      "source": "git",
       "dependencies": {
         "com.unity.2d.sprite": "1.0.0",
         "com.unity.2d.tilemap": "1.0.0",
         "com.unity.modules.animation": "1.0.0",
         "com.unity.modules.physics2d": "1.0.0",
         "com.unity.modules.tilemap": "1.0.0"
-      }
+      },
+      "hash": "ce0190f51c1b1d79ba740f7dd3085005de8b1558"
     },
     "com.unity.2d.animation": {
       "version": "9.1.2",
