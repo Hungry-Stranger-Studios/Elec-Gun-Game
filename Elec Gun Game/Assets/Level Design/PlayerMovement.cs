@@ -46,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
 
         //initialize internal values and states
         moveSpeed = 5f;
-        isRunning = false;
         movementDirectionX = 0;
         onGround = false;
         isDecelerating = false;
