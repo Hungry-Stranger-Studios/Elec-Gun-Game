@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Walk/Sprint Values")]
     [SerializeField] private float walkSpeed;
     [SerializeField] private float runSpeed;
+    [SerializeField] private float jumpMult;
 
     private float moveSpeed;
     private bool isRunning;
@@ -124,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
         //perform jumping
         if (onGround)
         {
-            playerRigidbody.AddForce(Vector2.up * 3f, ForceMode2D.Impulse);
+            playerRigidbody.AddForce(Vector2.up * jumpMult, ForceMode2D.Impulse);
             onGround = false;
         }
     }
@@ -141,5 +142,12 @@ public class PlayerMovement : MonoBehaviour
             isRunning = false;
         }      
     }
+
+    /*private void CheckIfGrounded()
+    {
+        // Cast a ray downwards from the player's ground check position
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        Debug.Log("Is Grounded: " + isGrounded);
+    }*/
 }
 
