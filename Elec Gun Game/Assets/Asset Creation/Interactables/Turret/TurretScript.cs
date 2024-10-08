@@ -32,6 +32,16 @@ public class TurretScript : MonoBehaviour
 
     private List<GameObject> projectiles = new List<GameObject>(); //List of projectiles
 
+    public ButtonScript button;
+    private void Start()
+    {
+        button = FindObjectOfType<ButtonScript>();
+
+        if (button != null)
+        {
+            button.ButtonPressed += OnButtonPressed;
+        }
+    }
     void Update()
     {
         shootTimer += Time.deltaTime;
@@ -88,7 +98,8 @@ public class TurretScript : MonoBehaviour
 
     Vector2 CalculateAimDirection()
     {
-        float radians = aimAngle * Mathf.Deg2Rad; //Degrees to rad
+        //Degrees to rad
+        float radians = aimAngle * Mathf.Deg2Rad;
 
         //Calculate circumference of aim
         float x = Mathf.Cos(radians) * 5;
@@ -108,5 +119,22 @@ public class TurretScript : MonoBehaviour
         aimAngle = autoRotateMinAngle + pingPongValue;
 
         turretParent.rotation = Quaternion.Euler(0f, 0f, aimAngle);
+    }
+
+    //Function to control turret by external input (Ex. Button)
+    private void OnButtonPressed(object sender, ButtonPressedEventArgs e)
+    {
+        // Update the turret's state based on the button press
+        canShoot = e.IsPressed;
+        Debug.Log("Turret is now " + (canShoot ? "active" : "inactive"));
+    }
+
+    void OnDestroy()
+    {
+        //Unsubscribe from the event to prevent memory leaks
+        if (button != null)
+        {
+            button.ButtonPressed -= OnButtonPressed;
+        }
     }
 }

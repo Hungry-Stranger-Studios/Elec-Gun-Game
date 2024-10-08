@@ -3,7 +3,12 @@ guid: 30e325a0dc23ecd49af72596877f61ad
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - projectilePrefab: {fileID: 7598712778092993221, guid: 147523aaa0e830d4291c3cb40cfa2513, type: 3}
+  - shootPoint: {instanceID: 0}
+  - turretSprite: {instanceID: 0}
+  - turretParent: {instanceID: 0}
+  - button: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
