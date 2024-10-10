@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2779353767022515709}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 1, z: 0}
+  m_LocalPosition: {x: 1.59, y: 2.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -134,17 +134,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6189624199800687527}
     m_Modifications:
+    - target: {fileID: 1111800110458098772, guid: 0086221127d037c4390ea77fe7d42d3a, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111800110458098772, guid: 0086221127d037c4390ea77fe7d42d3a, type: 3}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2890873563512720975, guid: 0086221127d037c4390ea77fe7d42d3a, type: 3}
       propertyPath: m_Name
       value: CheckPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 7979784299404592134, guid: 0086221127d037c4390ea77fe7d42d3a, type: 3}
+      propertyPath: widthInTiles
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7979784299404592134, guid: 0086221127d037c4390ea77fe7d42d3a, type: 3}
+      propertyPath: heightInTiles
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8724227792560817986, guid: 0086221127d037c4390ea77fe7d42d3a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 4.24
       objectReference: {fileID: 0}
     - target: {fileID: 8724227792560817986, guid: 0086221127d037c4390ea77fe7d42d3a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 2.81
       objectReference: {fileID: 0}
     - target: {fileID: 8724227792560817986, guid: 0086221127d037c4390ea77fe7d42d3a, type: 3}
       propertyPath: m_LocalPosition.z
