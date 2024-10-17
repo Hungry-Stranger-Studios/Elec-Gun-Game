@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = false;
         isDecelerating = false;
 
-}
+    }
 
     private void Update()
     {
