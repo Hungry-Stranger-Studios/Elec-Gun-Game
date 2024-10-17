@@ -1,12 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TurretScript : MonoBehaviour
 {
-    [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private Transform shootPoint;                                    //Point where projectile comes from
+    [SerializeField] private Transform shootPoint; //Point where projectile comes from
     [SerializeField] private SpriteRenderer turretSprite;
     [SerializeField] private Transform turretParent;
 
@@ -32,6 +32,8 @@ public class TurretScript : MonoBehaviour
 
     private List<GameObject> projectiles = new List<GameObject>(); //List of projectiles
 
+    [SerializeField] private GameObject[] projectilesColours = new GameObject[3];
+
     public ButtonScript button;
     private void Start()
     {
@@ -39,7 +41,7 @@ public class TurretScript : MonoBehaviour
 
         if (button != null)
         {
-            button.ButtonPressed += OnButtonPressed;
+            button.ButtonPressed += OnActivation;
         }
     }
     void Update()
@@ -80,11 +82,16 @@ public class TurretScript : MonoBehaviour
             transform.rotation = Quaternion.Euler(Vector3.forward * aimDirection);
 
             //Create projectile
+            int randomIndex = UnityEngine.Random.Range(0, projectilesColours.Length);
+            GameObject projectilePrefab = projectilesColours[randomIndex];
             GameObject ball = Instantiate(projectilePrefab, new Vector3(shootPoint.position.x, shootPoint.position.y, shootPoint.position.z + 1), Quaternion.identity);
+            Transform ballTransform = ball.transform;
 
             //Set direction and speed of projectile
             Rigidbody2D rb = ball.GetComponent<Rigidbody2D>();
             rb.velocity = aimDirection.normalized * projectileSpeed;
+
+            ballTransform.localScale = Vector3.one;
 
             projectiles.Add(ball);
 
@@ -121,11 +128,24 @@ public class TurretScript : MonoBehaviour
         turretParent.rotation = Quaternion.Euler(0f, 0f, aimAngle);
     }
 
-    //Function to control turret by external input (Ex. Button)
-    private void OnButtonPressed(object sender, ButtonPressedEventArgs e)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Update the turret's state based on the button press
-        canShoot = e.IsPressed;
+        if (collision != null)
+        { 
+            if (collision.CompareTag("Gun_Bullet"))
+            {
+                canShoot = !canShoot;
+                Debug.Log("Hit");
+            }
+        }
+    }
+
+    //Function to control turret by external input (Ex. Button)
+    //Change 'canShoot' to whatever boolean you want to change
+    private void OnActivation(object sender, ItemActivatedEventArgs e)
+    {
+        // Update turrets state based on the event activation 
+        canShoot = e.isActive;
         Debug.Log("Turret is now " + (canShoot ? "active" : "inactive"));
     }
 
@@ -134,7 +154,7 @@ public class TurretScript : MonoBehaviour
         //Unsubscribe from the event to prevent memory leaks
         if (button != null)
         {
-            button.ButtonPressed -= OnButtonPressed;
+            button.ButtonPressed -= OnActivation;
         }
     }
 }

@@ -18,21 +18,13 @@ public class ButtonScript : MonoBehaviour
     [SerializeField] private float weightThreshold = 1f; //Weight required for button press
     [SerializeField] private Transform buttonTop; //Top of the button, squished later
 
-    public event EventHandler<ButtonPressedEventArgs> ButtonPressed;
+    public event EventHandler<ItemActivatedEventArgs> ButtonPressed;
 
     [SerializeField] private GameObject objectControlled; //Assign object you want to control with button
 
     void Start()
     {
         originalScale = buttonTop.localScale; //Normal size when not pressed
-    }
-
-    void Update()
-    {
-        if (isPressed) //Manual testing
-        {
-            OnButtonPressed(new ButtonPressedEventArgs(isPressed));
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -43,7 +35,7 @@ public class ButtonScript : MonoBehaviour
         {
             isPressed = true;
             buttonTop.localScale = new Vector3(originalScale.x, originalScale.y / 2, originalScale.z);
-            OnButtonPressed(new ButtonPressedEventArgs(isPressed));
+            OnButtonPressed(new ItemActivatedEventArgs(isPressed));
             Debug.Log("Button pressed");
         }
     }
@@ -57,11 +49,11 @@ public class ButtonScript : MonoBehaviour
             isPressed = false;
             Debug.Log("Button released");
             buttonTop.localScale = originalScale;
-            OnButtonPressed(new ButtonPressedEventArgs(isPressed));
+            OnButtonPressed(new ItemActivatedEventArgs(isPressed));
         }
     }
 
-    protected virtual void OnButtonPressed(ButtonPressedEventArgs e)
+    protected virtual void OnButtonPressed(ItemActivatedEventArgs e) //Used to send event to other items
     {
         ButtonPressed?.Invoke(this, e);
     }
