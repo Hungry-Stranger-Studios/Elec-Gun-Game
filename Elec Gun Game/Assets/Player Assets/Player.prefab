@@ -250,6 +250,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a323214fd4d9bc428e6d98f3f44620a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: {fileID: 4992693283348291901}
+  playerRigidbody: {fileID: 7354578688266646346}
+  playerTransform: {fileID: 4532025099331266233}
+  playerCollider: {fileID: 4430460742366338878}
   accelerationCurve:
     serializedVersion: 2
     m_Curve:
@@ -263,10 +267,10 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.57818663
-      value: 0.22993474
-      inSlope: 1.497404
-      outSlope: 1.497404
+      time: 0.45124745
+      value: 0.76365405
+      inSlope: 1.4245982
+      outSlope: 1.4245982
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
@@ -316,5 +320,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  walkSpeed: 3
+  walkSpeed: 5
   runSpeed: 0
+  jumpMult: 5
+  groundCheckOffset: {x: 0, y: -1}
+  groundCheckRadius: 0.2
