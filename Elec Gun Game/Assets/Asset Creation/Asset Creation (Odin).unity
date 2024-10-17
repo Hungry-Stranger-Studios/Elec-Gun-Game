@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 266156409}
   - component: {fileID: 266156412}
   m_Layer: 0
-  m_Name: Platform (WIP cause idk unity)
+  m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -173,7 +173,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 1, y: 1}
+  m_Offset: {x: 2.5, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -184,7 +184,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 5, y: 1}
   m_EdgeRadius: 0
 --- !u!251 &266156410
 PlatformEffector2D:
@@ -214,7 +214,7 @@ Transform:
   m_GameObject: {fileID: 266156408}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 1, z: 0}
+  m_LocalPosition: {x: -6.5, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -229,11 +229,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 266156408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65a13d54fc2375b4cb30b8f253560f2f, type: 3}
+  m_Script: {fileID: 11500000, guid: de221afc92cfa974592eaf447c869c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 2
-  height: 2
+  length: 5
+  height: 1
 --- !u!1001 &720706082
 PrefabInstance:
   m_ObjectHideFlags: 0

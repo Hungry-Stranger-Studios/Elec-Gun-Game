@@ -13,16 +13,16 @@ public class PlatformScript : MonoBehaviour
     //I stole alot of evan's code for this lmao
 
     [SerializeField]
-    private int length = 0;
+    private float length = 0.05;
 
     [SerializeField]
-    private int height = 0;
+    private float height = 0.05;
 
     //Automatically changes the height and length of the platform 
     private void OnValidate()
     {
         gameObject.GetComponent<BoxCollider2D>().size = new Vector2(length, height);
-        gameObject.GetComponent<BoxCollider2D>().offset = new Vector2(0.5f * length, 0.5f * height);
+        gameObject.GetComponent<BoxCollider2D>().offset = new Vector2(0.5f * length - 0.5, 0.5f * height - 0.5);
     }
 
     
