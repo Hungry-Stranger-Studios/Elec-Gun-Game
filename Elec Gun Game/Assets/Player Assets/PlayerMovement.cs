@@ -64,11 +64,12 @@ public class PlayerMovement : MonoBehaviour
         movementDirectionX = playerInputActions.Player.Move.ReadValue<Vector2>().x;
 
 
-        time += Time.deltaTime;
+        
     }
 
     private void FixedUpdate()
     {
+        time += Time.fixedDeltaTime;
         //regular forward movement
         if (!isDecelerating)
         {
