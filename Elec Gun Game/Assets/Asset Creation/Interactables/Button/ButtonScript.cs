@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /*
@@ -13,18 +14,34 @@ using UnityEngine;
 
 public class ButtonScript : MonoBehaviour
 {
-    [SerializeField] private bool isPressed;
+    [SerializeField] private bool isPressed = false;
     private Vector3 originalScale;
     [SerializeField] private float weightThreshold = 1f; //Weight required for button press
-    [SerializeField] private Transform buttonTop; //Top of the button, squished later
+    [SerializeField] private GameObject buttonTop; //Top of the button, squished later
+    SpriteRenderer buttontopRenderer;
 
     public event EventHandler<ItemActivatedEventArgs> ButtonPressed;
 
     [SerializeField] private GameObject objectControlled; //Assign object you want to control with button
+    [SerializeField] private Sprite[] buttonSprites = new Sprite[2];
 
     void Start()
     {
-        originalScale = buttonTop.localScale; //Normal size when not pressed
+        Transform buttontopTransform = buttonTop.GetComponent<Transform>();
+        buttontopRenderer = buttonTop.GetComponent<SpriteRenderer>();
+        originalScale = buttontopTransform.localScale; //Normal size when not pressed
+    }
+
+    private void Update()
+    {
+        if (!isPressed)
+        {
+            buttontopRenderer.sprite = buttonSprites[0]; //Button is on
+        }
+        else
+        {
+            buttontopRenderer.sprite = buttonSprites[1];
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -34,7 +51,6 @@ public class ButtonScript : MonoBehaviour
         if (rb != null && rb.mass > weightThreshold) 
         {
             isPressed = true;
-            buttonTop.localScale = new Vector3(originalScale.x, originalScale.y / 2, originalScale.z);
             OnButtonPressed(new ItemActivatedEventArgs(isPressed));
             Debug.Log("Button pressed");
         }
@@ -47,9 +63,8 @@ public class ButtonScript : MonoBehaviour
         if (rb != null && rb.mass > weightThreshold)
         {
             isPressed = false;
-            Debug.Log("Button released");
-            buttonTop.localScale = originalScale;
             OnButtonPressed(new ItemActivatedEventArgs(isPressed));
+            Debug.Log("Button released");
         }
     }
 
