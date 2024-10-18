@@ -39,21 +39,12 @@
  </tile>
  <tile id="8">
   <image source="Shelf.png" width="64" height="64"/>
-  <objectgroup draworder="index" id="5">
-   <object id="5" x="1.81818" y="1.09091" width="61.0909" height="1.09091"/>
-  </objectgroup>
  </tile>
  <tile id="9">
   <image source="ShelfEmpty.png" width="64" height="64"/>
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="1.97374" y="0.939393" width="61.0909" height="1.09091"/>
-  </objectgroup>
  </tile>
  <tile id="10">
   <image source="Shelf2.png" width="64" height="64"/>
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="1.9375" y="0.934659" width="61.0909" height="1.09091"/>
-  </objectgroup>
  </tile>
  <tile id="13">
   <image source="Gambling.png" width="32" height="48"/>
