@@ -21,8 +21,9 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Walk/Sprint Values")]
     [SerializeField] private float walkSpeed;
-    [SerializeField] private float runSpeed;
     [SerializeField] private float jumpMult;
+    [SerializeField] private float sprintModifier;
+    [SerializeField] private float dashSpeed;
 
     [Header("Grounding Values")]
     [SerializeField] private Vector2 groundCheckOffset = new Vector2(0,0);
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float moveSpeed;
     private bool isRunning;
+    private bool isDashing;
     private float movementDirectionX;
     private bool isGrounded;
     private bool isDecelerating;
@@ -71,9 +73,18 @@ public class PlayerMovement : MonoBehaviour
     {
         time += Time.fixedDeltaTime;
         //regular forward movement
+        if (dashSpeed != 1)
+        {
+            dashSpeed -= (Time.deltaTime * 2.5f);
+            if (dashSpeed < 1)
+            {
+                dashSpeed = 1;
+                isDashing = false;
+            }
+        }
         if (!isDecelerating)
         {
-            moveSpeed = movementDirectionX * accelerationCurve.Evaluate(time) * walkSpeed;
+            moveSpeed = movementDirectionX * accelerationCurve.Evaluate(time) * walkSpeed * sprintModifier * dashSpeed;
         }
         else
         {
@@ -106,6 +117,17 @@ public class PlayerMovement : MonoBehaviour
             isDecelerating = true;
         }
     }
+
+    public void Dash(InputAction.CallbackContext context)
+    {
+        if (context.started && !isDashing)
+        {
+            time = 0f;
+            dashSpeed = 3f;
+            isDashing = true;
+        }
+    }
+
     public void Jump(InputAction.CallbackContext context) //This is an EVENT method. This means that the below will happen ONLY on Jump.performed
     {
         //perform jumping
@@ -131,12 +153,17 @@ public class PlayerMovement : MonoBehaviour
         //If the player presses sprint 
         if (context.started)
         {
-            isRunning = true;
-        }
-        else if(context.canceled)
-        {
-            isRunning = false;
-        }      
+            if (isRunning)
+            {
+                sprintModifier = 1f;
+                isRunning = false;
+            }
+            else
+            {
+                sprintModifier = 1.5f;
+                isRunning = true;
+            }
+        }   
     }
 
     private void CheckIfGrounded()
