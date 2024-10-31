@@ -237,7 +237,7 @@ PrefabInstance:
     - target: {fileID: 5802034439276831631, guid: 08e24ac6481144a42be998594b6f3587, type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 1458712844}
+      objectReference: {fileID: 1573519407}
     - target: {fileID: 5802034439276831631, guid: 08e24ac6481144a42be998594b6f3587, type: 3}
       propertyPath: m_Lens.FieldOfView
       value: 59.6
@@ -470,7 +470,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4857747004837364656, guid: 54a0793f947c25348a9f2f25469a1539, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1975576560810412773, guid: 54a0793f947c25348a9f2f25469a1539, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3043623681795317759, guid: 54a0793f947c25348a9f2f25469a1539, type: 3}
@@ -524,6 +525,7 @@ MonoBehaviour:
   playerRigidbody: {fileID: 1458712840}
   playerTransform: {fileID: 1458712844}
   playerCollider: {fileID: 1458712842}
+  CAMERA_FOLLOW_OBJ: {fileID: 1573519407}
   accelerationCurve:
     serializedVersion: 2
     m_Curve:
@@ -595,6 +597,11 @@ MonoBehaviour:
   jumpMult: 5
   groundCheckOffset: {x: 0, y: -1}
   groundCheckRadius: 0.2
+--- !u!4 &1573519407 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5228744805303413199, guid: 54a0793f947c25348a9f2f25469a1539, type: 3}
+  m_PrefabInstance: {fileID: 1434248852}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
