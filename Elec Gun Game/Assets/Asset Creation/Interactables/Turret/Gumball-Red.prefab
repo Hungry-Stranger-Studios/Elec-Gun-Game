@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 353554515366181339}
   - component: {fileID: 6422763175525905744}
   - component: {fileID: 8475140265236462690}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gumball-Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
