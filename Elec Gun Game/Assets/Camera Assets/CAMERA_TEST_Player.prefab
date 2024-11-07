@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4430460742366338878}
   - component: {fileID: 4992693283348291901}
   - component: {fileID: 7354578688266646346}
-  - component: {fileID: 4857747004837364656}
+  - component: {fileID: 3997626923833831742}
   m_Layer: 0
   m_Name: CAMERA_TEST_Player
   m_TagString: Player
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4857747004837364656}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: Jump
         m_Mode: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4857747004837364656}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: Move
         m_Mode: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4857747004837364656}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: sprintToggle
         m_Mode: 0
@@ -239,7 +239,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4857747004837364656
+--- !u!114 &3997626923833831742
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,13 +248,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3043623681795317759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a323214fd4d9bc428e6d98f3f44620a, type: 3}
+  m_Script: {fileID: 11500000, guid: afc43ccd590e02744abbefb071e641de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 4992693283348291901}
   playerRigidbody: {fileID: 7354578688266646346}
   playerTransform: {fileID: 4532025099331266233}
   playerCollider: {fileID: 4430460742366338878}
+  CAMERA_FOLLOW_OBJ: {fileID: 5228744805303413199}
+  cameraX_Smoothing: 0.01
+  cameraY_Smoothing: 0.01
+  max_cameraX_Offset: 3
+  max_cameraY_Offset: 3
   accelerationCurve:
     serializedVersion: 2
     m_Curve:

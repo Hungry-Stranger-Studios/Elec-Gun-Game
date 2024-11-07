@@ -14,9 +14,10 @@ public class CameraFollow : MonoBehaviour
         cam = GetComponent<CinemachineVirtualCamera>();
         if (cam.Follow == null)
         {
-            GameObject player = GameObject.FindGameObjectsWithTag("Player")[0];
-            
-            cam.Follow = player.transform;
+            Transform player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+            Transform camera_follow_obj = player.Find("CAMERA_FOLLOW_OBJECT");
+
+            cam.Follow = camera_follow_obj;
          }
     }
 
