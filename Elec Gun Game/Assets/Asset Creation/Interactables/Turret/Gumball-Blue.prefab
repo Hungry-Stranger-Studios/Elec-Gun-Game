@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8436740336494171697}
   - component: {fileID: 4304189509844215145}
   - component: {fileID: 2586746303493567005}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gumball-Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
