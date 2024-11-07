@@ -18,20 +18,21 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AnimationCurve accelerationCurve;
     [SerializeField] private AnimationCurve decelerationCurve;
     private float time;
+    private float bufferTime;
 
     [Header("Walk/Sprint Values")]
     [SerializeField] private float walkSpeed;
     [SerializeField] private float jumpMult;
-    [SerializeField] private float sprintModifier;
-    [SerializeField] private float dashSpeed;
+    [SerializeField] private float speedModifier;
 
     [Header("Grounding Values")]
     [SerializeField] private Vector2 groundCheckOffset = new Vector2(0,0);
     [SerializeField] private float groundCheckRadius = 0.2f;
 
     private float moveSpeed;
-    private bool isRunning;
-    private bool isDashing;
+    private float checkSpeed;
+    private bool moveCancelled;
+    private bool isSprinting;
     private float movementDirectionX;
     private bool isGrounded;
     private bool isDecelerating;
@@ -53,7 +54,9 @@ public class PlayerMovement : MonoBehaviour
 
         //initialize internal values and states
         isGrounded = false;
-        isDecelerating = false;
+        isDecelerating = true;
+        checkSpeed = walkSpeed;
+        moveCancelled = false;
 
     }
 
@@ -65,6 +68,22 @@ public class PlayerMovement : MonoBehaviour
         //this will give you the vector2 containing the movement input (already normalized)
         movementDirectionX = playerInputActions.Player.Move.ReadValue<Vector2>().x;
 
+        if (moveCancelled && bufferTime <= 0)
+        {
+            isDecelerating = true;
+            walkSpeed = checkSpeed;
+            if (speedModifier != 1)
+            {
+                speedModifier = 1;
+                isSprinting = false;
+            }
+            bufferTime = 0;
+            moveCancelled = false;
+        }
+        else if (moveCancelled && bufferTime > 0)
+        {
+            bufferTime -= Time.deltaTime;
+        }
 
         
     }
@@ -73,18 +92,23 @@ public class PlayerMovement : MonoBehaviour
     {
         time += Time.fixedDeltaTime;
         //regular forward movement
-        if (dashSpeed != 1)
-        {
-            dashSpeed -= (Time.deltaTime * 2.5f);
-            if (dashSpeed < 1)
-            {
-                dashSpeed = 1;
-                isDashing = false;
-            }
-        }
         if (!isDecelerating)
         {
-            moveSpeed = movementDirectionX * accelerationCurve.Evaluate(time) * walkSpeed * sprintModifier * dashSpeed;
+            if (isSprinting)
+            {
+                speedModifier -= 9 * Time.deltaTime;
+            }
+            if (speedModifier < 1)
+            {
+                speedModifier = 1;
+                isSprinting = false;
+            }
+            if (time > 1f && walkSpeed == checkSpeed)
+            {
+                walkSpeed += 7;
+            }
+                moveSpeed = movementDirectionX * accelerationCurve.Evaluate(time) * walkSpeed * speedModifier;
+            
         }
         else
         {
@@ -104,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
         {
             time = 0f;
             isDecelerating = false;
+            moveCancelled = false;
         }
         //if the player changes their movement without cancelling it
         if (context.performed)
@@ -114,17 +139,8 @@ public class PlayerMovement : MonoBehaviour
         else if (context.canceled)
         {
             time = 0f;
-            isDecelerating = true;
-        }
-    }
-
-    public void Dash(InputAction.CallbackContext context)
-    {
-        if (context.started && !isDashing)
-        {
-            time = 0f;
-            dashSpeed = 3f;
-            isDashing = true;
+            bufferTime = 0.25f;
+            moveCancelled = true;
         }
     }
 
@@ -148,20 +164,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void sprintToggle(InputAction.CallbackContext context)
+    public void Sprint(InputAction.CallbackContext context)
     {
         //If the player presses sprint 
         if (context.started)
         {
-            if (isRunning)
+            if (!isDecelerating && !isSprinting)
             {
-                sprintModifier = 1f;
-                isRunning = false;
-            }
-            else
-            {
-                sprintModifier = 1.5f;
-                isRunning = true;
+                speedModifier += 3f;
+                isSprinting = true;
             }
         }   
     }
