@@ -1419,6 +1419,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: st2u_x0y0-w315h250
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 315
+        height: 250
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d52a342eea9a6ff4384781a595de075a
+      internalID: -56219439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1430,6 +1451,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      st2u_x0y0-w315h250: -56219439
       st2u_x0y122-w32h32: 729397859
       st2u_x0y154-w32h32: -2128938323
       st2u_x0y186-w32h32: 1758725732
