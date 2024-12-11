@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,14 @@ public class PlayerMovementCAMERA_VERSION : MonoBehaviour
 
     [Header("Camera Components")]
     [SerializeField] private Transform CAMERA_FOLLOW_OBJ;
+    [SerializeField] private float cameraX_Smoothing;
+    [SerializeField] private float cameraY_Smoothing;
+    [SerializeField] private float max_cameraX_Offset;
+    [SerializeField] private float max_cameraY_Offset;
+
+    private float cam_offset_x = 0;
+    private float cam_offset_y = 0;
+
 
     [Header("Movement Curves")]
     [SerializeField] private AnimationCurve accelerationCurve;
@@ -62,12 +71,34 @@ public class PlayerMovementCAMERA_VERSION : MonoBehaviour
     {
         CheckIfGrounded();
 
-
+        UpdateCameraFollowPos();
         //this will give you the vector2 containing the movement input (already normalized)
         movementDirectionX = playerInputActions.Player.Move.ReadValue<Vector2>().x;
 
-        CAMERA_FOLLOW_OBJ.localPosition = new Vector3(moveSpeed, 0, 0);
+        
 
+    }
+
+    private void UpdateCameraFollowPos()
+    {
+        //Update the x offset of the camera follow target
+        cam_offset_x = Mathf.Lerp(cam_offset_x, moveSpeed / 2f, cameraX_Smoothing);
+        cam_offset_x = Mathf.Clamp(cam_offset_x, -1f*max_cameraX_Offset, max_cameraX_Offset);
+
+        //Update the y offset of the camera follow target
+        //If player moving upwards
+        if (playerRigidbody.velocity.y > 0f) {
+            cam_offset_y = Mathf.Lerp(cam_offset_y, 2, cameraY_Smoothing);
+        }
+        //If the player is moving downwards
+        else
+        {
+            cam_offset_y = Mathf.Lerp(cam_offset_y, playerRigidbody.velocity.y, cameraY_Smoothing);
+        }
+        cam_offset_y = Mathf.Clamp(cam_offset_y, -1f * max_cameraY_Offset, max_cameraY_Offset);
+
+        //Set the position of the follow target
+        CAMERA_FOLLOW_OBJ.localPosition = new Vector3(cam_offset_x, cam_offset_y, 0);
     }
 
     private void FixedUpdate()
