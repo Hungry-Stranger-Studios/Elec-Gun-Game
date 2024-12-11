@@ -18,18 +18,21 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AnimationCurve accelerationCurve;
     [SerializeField] private AnimationCurve decelerationCurve;
     private float time;
+    private float bufferTime;
 
     [Header("Walk/Sprint Values")]
     [SerializeField] private float walkSpeed;
-    [SerializeField] private float runSpeed;
     [SerializeField] private float jumpMult;
+    [SerializeField] private float speedModifier;
 
     [Header("Grounding Values")]
     [SerializeField] private Vector2 groundCheckOffset = new Vector2(0,0);
     [SerializeField] private float groundCheckRadius = 0.2f;
 
     private float moveSpeed;
-    private bool isRunning;
+    private float checkSpeed;
+    private bool moveCancelled;
+    private bool isSprinting;
     private float movementDirectionX;
     private bool isGrounded;
     private bool isDecelerating;
@@ -51,7 +54,9 @@ public class PlayerMovement : MonoBehaviour
 
         //initialize internal values and states
         isGrounded = false;
-        isDecelerating = false;
+        isDecelerating = true;
+        checkSpeed = walkSpeed;
+        moveCancelled = false;
 
     }
 
@@ -63,6 +68,22 @@ public class PlayerMovement : MonoBehaviour
         //this will give you the vector2 containing the movement input (already normalized)
         movementDirectionX = playerInputActions.Player.Move.ReadValue<Vector2>().x;
 
+        if (moveCancelled && bufferTime <= 0)
+        {
+            isDecelerating = true;
+            walkSpeed = checkSpeed;
+            if (speedModifier != 1)
+            {
+                speedModifier = 1;
+                isSprinting = false;
+            }
+            bufferTime = 0;
+            moveCancelled = false;
+        }
+        else if (moveCancelled && bufferTime > 0)
+        {
+            bufferTime -= Time.deltaTime;
+        }
 
         
     }
@@ -73,7 +94,21 @@ public class PlayerMovement : MonoBehaviour
         //regular forward movement
         if (!isDecelerating)
         {
-            moveSpeed = movementDirectionX * accelerationCurve.Evaluate(time) * walkSpeed;
+            if (isSprinting)
+            {
+                speedModifier -= 9 * Time.deltaTime;
+            }
+            if (speedModifier < 1)
+            {
+                speedModifier = 1;
+                isSprinting = false;
+            }
+            if (time > 1f && walkSpeed == checkSpeed)
+            {
+                walkSpeed += 7;
+            }
+                moveSpeed = movementDirectionX * accelerationCurve.Evaluate(time) * walkSpeed * speedModifier;
+            
         }
         else
         {
@@ -93,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
         {
             time = 0f;
             isDecelerating = false;
+            moveCancelled = false;
         }
         //if the player changes their movement without cancelling it
         if (context.performed)
@@ -103,9 +139,11 @@ public class PlayerMovement : MonoBehaviour
         else if (context.canceled)
         {
             time = 0f;
-            isDecelerating = true;
+            bufferTime = 0.25f;
+            moveCancelled = true;
         }
     }
+
     public void Jump(InputAction.CallbackContext context) //This is an EVENT method. This means that the below will happen ONLY on Jump.performed
     {
         //perform jumping
@@ -126,17 +164,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void sprintToggle(InputAction.CallbackContext context)
+    public void Sprint(InputAction.CallbackContext context)
     {
         //If the player presses sprint 
         if (context.started)
         {
-            isRunning = true;
-        }
-        else if(context.canceled)
-        {
-            isRunning = false;
-        }      
+            if (!isDecelerating && !isSprinting)
+            {
+                speedModifier += 3f;
+                isSprinting = true;
+            }
+        }   
     }
 
     private void CheckIfGrounded()
