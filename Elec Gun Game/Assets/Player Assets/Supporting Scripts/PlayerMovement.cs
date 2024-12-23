@@ -74,7 +74,6 @@ public class PlayerMovement : MonoBehaviour
     {
         CheckIfGrounded();
         UpdateCameraFollowPos();
-        if (Input.GetMouseButtonDown(0)) { KillPlayer(); }
 
         //this will give you the vector2 containing the movement input (already normalized)
         movementDirectionX = playerInputActions.Player.Move.ReadValue<Vector2>().x;
