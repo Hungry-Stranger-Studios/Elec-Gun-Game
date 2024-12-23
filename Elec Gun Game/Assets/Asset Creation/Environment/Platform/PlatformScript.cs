@@ -13,10 +13,10 @@ public class PlatformScript : MonoBehaviour
     //I stole alot of evan's code for this lmao
 
     [SerializeField]
-    private int length = 0;
+    private float length = 0f;
 
     [SerializeField]
-    private int height = 0;
+    private float height = 0f;
 
     //Automatically changes the height and length of the platform 
     private void OnValidate()

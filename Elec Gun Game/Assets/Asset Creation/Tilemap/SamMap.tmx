@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="64" height="32" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="1">
+ <tileset firstgid="1" name="floor" tilewidth="1" tileheight="1" tilecount="0" columns="0"/>
+ <tileset firstgid="1" source="../../Asset Creation/Tilemap/Warehouse Floor.tsx"/>
+ <layer id="1" name="Background" width="64" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt0LENACEMBEGH9F8xDZAgIdvAnLTp4/kREUOSJEn6oGhwA3+edbXqu/j5b/fvfu/0+9V18L/2T/mV0e663MTPz8/Pz8+f5zd7aRNudTNh
+  </data>
+ </layer>
+ <layer id="2" name="Level Objs" width="64" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztmF0KgCAQhH0PIgv68zIdraN2lASRIjSsXDWdD4ZEZNtZ0q0YAwCAcqkNc1WAuVhIv6sez4nrCnV8AAAogS52Ag5M7Dirp1Pf+hLnT+e/zHvh8srVeHsbp5caDCqF0v03TD1DV/lA7y1BtD51dG1bovUu5FbTp1DUFOTPk2/FUHvL9q5CkYepJ9o0erzvHbZeTZEH/MM//MM//MO/i2L/D/cp8cI/lJd2gVwuKg==
+  </data>
+ </layer>
+</map>
