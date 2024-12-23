@@ -1,17 +1,15 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
-
 public class GunScript : MonoBehaviour
 {
-    [SerializeField] private GameObject projectile; 
-    [SerializeField] private Transform shootPoint; //Projectile origin
-    [SerializeField] private Transform gunParent; //Rotation point of gun
+    [SerializeField] private GameObject projectile;
+    [SerializeField] private Transform shootPoint; // Projectile origin
+    [SerializeField] private Transform gunParent; // Rotation point of gun
     [SerializeField] private SpriteRenderer gunSprite;
-
+    [SerializeField] private Camera playerCam;
     [SerializeField] private float projectileSpeed = 3f;
+    [SerializeField] private float minMouseDistance = 10.10f;
     [SerializeField] private bool canShoot = true;
 
     private float xScale;
@@ -19,50 +17,65 @@ public class GunScript : MonoBehaviour
 
     private List<GameObject> projectiles = new List<GameObject>();
 
-    [Range(-40f, 220f)]
-    [SerializeField] private float aimAngle = 0f;
+   
+    private Vector3 mousePos;
 
     void Start()
     {
         xScale = gunParent.transform.localScale.x;
         yScale = gunParent.transform.localScale.y;
     }
-
-    // Update is called once per frame
     void Update()
     {
+        // Update mouse position
+        mousePos = playerCam.ScreenToWorldPoint(Input.mousePosition);
+        AimGun();
+
+        // Check for shooting input
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
         }
+    }
 
-        gunParent.rotation = Quaternion.Euler(0f, 0f, aimAngle);
-        
-        if (aimAngle > 90f && aimAngle < 270f)
+    private void AimGun()
+    {
+        //Calculate the direction to the mouse position
+        Vector3 directionToMouse = mousePos - gunParent.position;
+        float distanceToMouse = directionToMouse.magnitude;
+
+        //Only rotate if mouse is outside minimum radius
+        if (distanceToMouse > minMouseDistance)
         {
-            
-            //Flip the sprite
-            gunParent.localScale = new Vector3((xScale), -(yScale), 1f);
+            //Calculate angle towards mouse position
+            float rotZ = Mathf.Atan2(directionToMouse.y, directionToMouse.x) * Mathf.Rad2Deg;
+            gunParent.rotation = Quaternion.Euler(0, 0, rotZ);
+        }
+
+        //Flip the gun sprite based on rotation
+        Vector3 localScale = gunParent.localScale;
+        if (directionToMouse.x < 0)
+        {
+            gunParent.localScale = new Vector3(xScale, -yScale, 1f);
         }
         else
         {
-            //Reset the flip
-            gunParent.localScale = new Vector3((xScale), (yScale), 1f);
+            gunParent.localScale = new Vector3(xScale, yScale, 1f);
         }
-        
     }
 
-    void Shoot()
+
+    private void Shoot()
     {
         if (canShoot)
         {
-            Vector2 aimDirection = CalculateAimDirection();
+            //Calculate aim direction
+            Vector2 aimDirection = shootPoint.right;
 
             //Create projectile at shoot point
             GameObject ball = Instantiate(projectile, shootPoint.position, Quaternion.identity);
-
             Rigidbody2D rb = ball.GetComponent<Rigidbody2D>();
-            rb.velocity = aimDirection.normalized * projectileSpeed;
+            rb.velocity = aimDirection * projectileSpeed;
 
             //Add projectile to list
             projectiles.Add(ball);
@@ -74,17 +87,5 @@ public class GunScript : MonoBehaviour
                 projectiles.RemoveAt(0);
             }
         }
-    }
-
-    Vector2 CalculateAimDirection()
-    {
-        //Convert aim angle (degrees) to radians
-        float radians = aimAngle * Mathf.Deg2Rad;
-
-        //Calculate direction vector based on angle
-        float x = Mathf.Cos(radians);
-        float y = Mathf.Sin(radians);
-
-        return new Vector2(x, y);
     }
 }

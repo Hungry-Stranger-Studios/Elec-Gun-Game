@@ -24,7 +24,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Sprint",
+                    "name": "Dash",
                     "type": "Button",
                     "id": "c8bca48b-9597-4375-b25a-a9a5df00ccb8",
                     "expectedControlType": "Button",
@@ -140,7 +140,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Sprint",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -151,7 +151,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Sprint",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
