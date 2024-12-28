@@ -1,10 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-public class TurretScript : MonoBehaviour
+public class TurretScript : MonoBehaviour, IControllable
 {
     [SerializeField] private Transform shootPoint; //Point where projectile comes from
     [SerializeField] private SpriteRenderer turretSprite;
@@ -18,11 +17,11 @@ public class TurretScript : MonoBehaviour
     [SerializeField] private float aimAngle = 0f;
     private float shootTimer = 0f;
 
-    [SerializeField] private Boolean canShoot = true;
-    public Boolean autoRotate = false;
+    [SerializeField] private bool canShoot = true;
+    public bool autoRotate = false;
 
     [HideInInspector]
-    public float autoRotateSpeed = 10f; 
+    public float autoRotateSpeed = 10f;
 
     [HideInInspector]  //Hide unless autoRotate is true
     public float autoRotateMinAngle = -40f;
@@ -35,43 +34,37 @@ public class TurretScript : MonoBehaviour
     [SerializeField] private GameObject[] projectilesColours = new GameObject[3];
 
     public ButtonScript button;
+
     private void Start()
     {
         button = FindObjectOfType<ButtonScript>();
 
+        // Ensure the button is found before subscribing to event
         if (button != null)
         {
             button.ButtonPressed += OnActivation;
         }
     }
+
     void Update()
     {
         shootTimer += Time.deltaTime;
 
-        if (shootTimer >= timeBetweenShots)
+        // Only shoot if we can shoot and the time has passed
+        if (canShoot && shootTimer >= timeBetweenShots)
         {
             Shoot();
-            shootTimer = 0f; //Reset timer
+            shootTimer = 0f; //Reset timer after shooting
         }
 
-        if (autoRotate) //Check for rotation setting
+        if (autoRotate) //Check for auto-rotation
         {
-            if (autoRotateMinAngle < -40f)
-            {
-                autoRotateMinAngle = -40f;
-            }
-
-            if (autoRotateMaxAngle > 220f)
-            {
-                autoRotateMaxAngle = 220f;
-            }
-
             AutoRotateTurret();
-        } else
+        }
+        else
         {
             RotateTurret();
         }
-
     }
 
     void Shoot()
@@ -81,37 +74,30 @@ public class TurretScript : MonoBehaviour
             Vector2 aimDirection = CalculateAimDirection();
             transform.rotation = Quaternion.Euler(Vector3.forward * aimDirection);
 
-            //Create projectile
+            // Create and fire a projectile
             int randomIndex = UnityEngine.Random.Range(0, projectilesColours.Length);
             GameObject projectilePrefab = projectilesColours[randomIndex];
-            GameObject ball = Instantiate(projectilePrefab, new Vector3(shootPoint.position.x, shootPoint.position.y, shootPoint.position.z + 1), Quaternion.identity);
-            Transform ballTransform = ball.transform;
-
-            //Set direction and speed of projectile
+            GameObject ball = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
             Rigidbody2D rb = ball.GetComponent<Rigidbody2D>();
             rb.velocity = aimDirection.normalized * projectileSpeed;
 
-            ballTransform.localScale = Vector3.one;
-
             projectiles.Add(ball);
 
+            // Destroy old projectiles if exceeded maxProjectiles
             if (projectiles.Count > maxProjectiles)
             {
                 Destroy(projectiles[0]);
-                projectiles.RemoveAt(0); 
+                projectiles.RemoveAt(0);
             }
         }
     }
 
     Vector2 CalculateAimDirection()
     {
-        //Degrees to rad
+        // Calculate the aim direction based on the aim angle
         float radians = aimAngle * Mathf.Deg2Rad;
-
-        //Calculate circumference of aim
         float x = Mathf.Cos(radians) * 5;
         float y = Mathf.Sin(radians) * 5;
-
         return new Vector2(x, y);
     }
 
@@ -124,37 +110,40 @@ public class TurretScript : MonoBehaviour
     {
         float pingPongValue = Mathf.PingPong(Time.time * autoRotateSpeed, autoRotateMaxAngle - autoRotateMinAngle);
         aimAngle = autoRotateMinAngle + pingPongValue;
-
         turretParent.rotation = Quaternion.Euler(0f, 0f, aimAngle);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision != null)
-        { 
-            if (collision.CompareTag("Gun_Bullet"))
-            {
-                canShoot = !canShoot;
-                Debug.Log("Hit");
-            }
-        }
-    }
-
-    //Function to control turret by external input (Ex. Button)
-    //Change 'canShoot' to whatever boolean you want to change
+    // React to external inputs (like button presses)
     private void OnActivation(object sender, ItemActivatedEventArgs e)
     {
-        // Update turrets state based on the event activation 
+        // Update turret's state based on the button's activation state
         canShoot = e.isActive;
         Debug.Log("Turret is now " + (canShoot ? "active" : "inactive"));
     }
 
+    // Clean up event subscription to avoid memory leaks
     void OnDestroy()
     {
-        //Unsubscribe from the event to prevent memory leaks
         if (button != null)
         {
             button.ButtonPressed -= OnActivation;
+        }
+    }
+
+    // Toggle the shooting state (via external control)
+    public void ToggleState(bool isActive)
+    {
+        this.canShoot = isActive;
+        Debug.Log("Turret state toggled: " + (isActive ? "active" : "inactive"));
+    }
+
+    // Trigger detection (e.g., for collisions with bullets)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Gun_Bullet"))
+        {
+            canShoot = !canShoot; // Toggle shooting ability on collision
+            Debug.Log("Hit by bullet. Turret shooting: " + canShoot);
         }
     }
 }

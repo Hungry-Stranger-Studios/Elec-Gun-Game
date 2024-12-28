@@ -21,8 +21,9 @@ public class ButtonScript : MonoBehaviour
     SpriteRenderer buttontopRenderer;
 
     public event EventHandler<ItemActivatedEventArgs> ButtonPressed;
+    private IControllable controlledObject; //Interface reference to pass state
+    [SerializeField] private GameObject objectControlled; //Assgned to object wanting to control
 
-    [SerializeField] private GameObject objectControlled; //Assign object you want to control with button
     [SerializeField] private Sprite[] buttonSprites = new Sprite[2];
 
     void Start()
@@ -30,6 +31,9 @@ public class ButtonScript : MonoBehaviour
         Transform buttontopTransform = buttonTop.GetComponent<Transform>();
         buttontopRenderer = buttonTop.GetComponent<SpriteRenderer>();
         originalScale = buttontopTransform.localScale; //Normal size when not pressed
+
+        //Try to get IControllable from objectControlled if it implements the interface
+        controlledObject = objectControlled.GetComponent<IControllable>();
     }
 
     private void Update()
@@ -46,25 +50,25 @@ public class ButtonScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //Check for object on top of button
+        // Check for object on top of button and ensure it triggers the press only once
         Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
-        if (rb != null && rb.mass > weightThreshold) 
+        if (rb != null && rb.mass > weightThreshold && !isPressed)
         {
             isPressed = true;
             OnButtonPressed(new ItemActivatedEventArgs(isPressed));
-            Debug.Log("Button pressed");
+            Debug.Log("Button pressed. Item should be " + isPressed);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        //Check for object off of top of button
+        // Check for object off the button and trigger release only once
         Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
-        if (rb != null && rb.mass > weightThreshold)
+        if (rb != null && rb.mass > weightThreshold && isPressed)
         {
             isPressed = false;
             OnButtonPressed(new ItemActivatedEventArgs(isPressed));
-            Debug.Log("Button released");
+            Debug.Log("Button released. Item should be " + isPressed);
         }
     }
 
