@@ -23,4 +23,13 @@ public class DeathZone : MonoBehaviour
             //TODO: Add enemy controller script with a kill command.
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        //Drawing a collider gizmo
+        BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(boxCollider.transform.position + (Vector3)boxCollider.offset, boxCollider.size);
+    }
 }
