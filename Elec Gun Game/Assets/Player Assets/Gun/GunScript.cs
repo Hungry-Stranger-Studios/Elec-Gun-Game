@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 public class GunScript : MonoBehaviour
 {
+    [SerializeField] private Transform spotlight; //Light attached to gun (if wanted)
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform shootPoint; // Projectile origin
     [SerializeField] private Transform gunParent; // Rotation point of gun
@@ -61,6 +63,10 @@ public class GunScript : MonoBehaviour
         else
         {
             gunParent.localScale = new Vector3(xScale, yScale, 1f);
+        }
+
+        if (spotlight != null) {
+            spotlight.rotation = Quaternion.Euler(0f, 0f, gunParent.rotation.eulerAngles.z - 90f);
         }
     }
 

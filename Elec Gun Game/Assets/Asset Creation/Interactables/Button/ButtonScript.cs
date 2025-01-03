@@ -11,10 +11,9 @@ using UnityEngine;
 
     *Button in other elements can be left empty if you want normal controls*
  */
-
+#pragma warning disable CS0067
 public class ButtonScript : MonoBehaviour
 {
-    [Header("Button Requirements")]
     [SerializeField] private float weightThreshold = 1f; //Weight required for button press
     [SerializeField] private GameObject objectControlled; //Assgned to object wanting to control
 
@@ -82,3 +81,4 @@ public class ButtonScript : MonoBehaviour
     }
 
 }
+#pragma warning restore CS0067
