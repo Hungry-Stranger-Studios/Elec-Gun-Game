@@ -1,4 +1,4 @@
 public interface IControllable
 {
-    void ToggleState(bool isActive);
+    void OnActivation(object sender, ItemActivatedEventArgs e);
 }

@@ -14,17 +14,23 @@ using UnityEngine;
 
 public class ButtonScript : MonoBehaviour
 {
-    [SerializeField] private bool isPressed = false;
-    private Vector3 originalScale;
+    [Header("Button Requirements")]
     [SerializeField] private float weightThreshold = 1f; //Weight required for button press
-    [SerializeField] private GameObject buttonTop; //Top of the button, squished later
-    SpriteRenderer buttontopRenderer;
-
-    public event EventHandler<ItemActivatedEventArgs> ButtonPressed;
-    private IControllable controlledObject; //Interface reference to pass state
     [SerializeField] private GameObject objectControlled; //Assgned to object wanting to control
 
+    //Button State
+    private bool isPressed = false;
+
+    //Visual Changes
+    private Vector3 originalScale;
+    [SerializeField] private GameObject buttonTop; //Top of the button, squished later
     [SerializeField] private Sprite[] buttonSprites = new Sprite[2];
+    SpriteRenderer buttontopRenderer;
+
+    //Event Changes
+    public event EventHandler<ItemActivatedEventArgs> ButtonPressed;
+    private IControllable controlledObject; //Interface reference to pass state
+    public ItemActivator activator;
 
     void Start()
     {
@@ -33,7 +39,7 @@ public class ButtonScript : MonoBehaviour
         originalScale = buttontopTransform.localScale; //Normal size when not pressed
 
         //Try to get IControllable from objectControlled if it implements the interface
-        controlledObject = objectControlled.GetComponent<IControllable>();
+        activator.controllableItem = objectControlled.GetComponent<IControllable>();
     }
 
     private void Update()
@@ -48,32 +54,31 @@ public class ButtonScript : MonoBehaviour
         }
     }
 
+    private void UpdateVisual()
+    {
+        buttontopRenderer.sprite = isPressed ? buttonSprites[1] : buttonSprites[0];
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Check for object on top of button and ensure it triggers the press only once
         Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
         if (rb != null && rb.mass > weightThreshold && !isPressed)
         {
             isPressed = true;
-            OnButtonPressed(new ItemActivatedEventArgs(isPressed));
-            Debug.Log("Button pressed. Item should be " + isPressed);
+            activator.ActivateItem(isPressed);
+            UpdateVisual();
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        // Check for object off the button and trigger release only once
         Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
         if (rb != null && rb.mass > weightThreshold && isPressed)
         {
             isPressed = false;
-            OnButtonPressed(new ItemActivatedEventArgs(isPressed));
-            Debug.Log("Button released. Item should be " + isPressed);
+            activator.ActivateItem(isPressed);
+            UpdateVisual();
         }
     }
 
-    protected virtual void OnButtonPressed(ItemActivatedEventArgs e) //Used to send event to other items
-    {
-        ButtonPressed?.Invoke(this, e);
-    }
 }

@@ -5,41 +5,37 @@ using UnityEngine;
 
 public class TurretScript : MonoBehaviour, IControllable
 {
-    [SerializeField] private Transform shootPoint; //Point where projectile comes from
-    [SerializeField] private SpriteRenderer turretSprite;
-    [SerializeField] private Transform turretParent;
+    // References to objects related to the turret and shooting mechanics
+    [SerializeField] private Transform shootPoint; // Point where projectile comes from
+    [SerializeField] private SpriteRenderer turretSprite; // Visual representation of the turret
+    [SerializeField] private Transform turretParent; // Parent transform for turret rotation or positioning
 
-    [SerializeField] private float projectileSpeed = 3f;
-    [SerializeField] private float timeBetweenShots = 2f;
-    [SerializeField] private int maxProjectiles = 10;
+    // Settings for projectile behavior
+    [SerializeField] private float projectileSpeed = 3f; // Speed at which the projectile travels
+    [SerializeField] private float timeBetweenShots = 2f; // Cooldown time between shots
+    [SerializeField] private int maxProjectiles = 10; // Maximum number of projectiles allowed
 
+    // Aiming and rotation settings
     [Range(-40f, 220f)]
-    [SerializeField] private float aimAngle = 0f;
-    private float shootTimer = 0f;
+    [SerializeField] private float aimAngle = 0f; // Current aim angle of the turret
+    [SerializeField] private bool canShoot = true; // Flag to control if the turret can shoot
+    public bool autoRotate = false; // Whether the turret automatically rotates
 
-    [SerializeField] private bool canShoot = true;
-    public bool autoRotate = false;
+    // Auto-rotation specific settings
+    [HideInInspector] public float autoRotateSpeed = 10f; // Speed of auto-rotation
+    [HideInInspector] public float autoRotateMinAngle = -40f; // Minimum angle for auto-rotation
+    [HideInInspector] public float autoRotateMaxAngle = 220f; // Maximum angle for auto-rotation
 
-    [HideInInspector]
-    public float autoRotateSpeed = 10f;
+    // Shooting timer and projectile list
+    private float shootTimer = 0f; // Tracks cooldown time between shots
+    private List<GameObject> projectiles = new List<GameObject>(); // List of active projectiles
+    [SerializeField] private GameObject[] projectilesColours = new GameObject[3]; // Array of different projectile colors
 
-    [HideInInspector]  //Hide unless autoRotate is true
-    public float autoRotateMinAngle = -40f;
-
-    [HideInInspector]  //Hide unless autoRotate is true
-    public float autoRotateMaxAngle = 220f;
-
-    private List<GameObject> projectiles = new List<GameObject>(); //List of projectiles
-
-    [SerializeField] private GameObject[] projectilesColours = new GameObject[3];
-
-    public ButtonScript button;
+    // UI reference
+    public ButtonScript button; // Reference to a button script
 
     private void Start()
     {
-        button = FindObjectOfType<ButtonScript>();
-
-        // Ensure the button is found before subscribing to event
         if (button != null)
         {
             button.ButtonPressed += OnActivation;
@@ -114,11 +110,10 @@ public class TurretScript : MonoBehaviour, IControllable
     }
 
     // React to external inputs (like button presses)
-    private void OnActivation(object sender, ItemActivatedEventArgs e)
+    public void OnActivation(object sender, ItemActivatedEventArgs e)
     {
         // Update turret's state based on the button's activation state
         canShoot = e.isActive;
-        Debug.Log("Turret is now " + (canShoot ? "active" : "inactive"));
     }
 
     // Clean up event subscription to avoid memory leaks
@@ -130,20 +125,12 @@ public class TurretScript : MonoBehaviour, IControllable
         }
     }
 
-    // Toggle the shooting state (via external control)
-    public void ToggleState(bool isActive)
-    {
-        this.canShoot = isActive;
-        Debug.Log("Turret state toggled: " + (isActive ? "active" : "inactive"));
-    }
-
-    // Trigger detection (e.g., for collisions with bullets)
+    // Trigger detection (Ex. for collisions with bullets)
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Gun_Bullet"))
         {
             canShoot = !canShoot; // Toggle shooting ability on collision
-            Debug.Log("Hit by bullet. Turret shooting: " + canShoot);
         }
     }
 }
