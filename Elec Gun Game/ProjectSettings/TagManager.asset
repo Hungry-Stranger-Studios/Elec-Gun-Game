@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Gun_Bullet
+  - Gun
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
@@ -13,7 +15,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - LevelElements
   - 
   - 
   - 

@@ -219,31 +219,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void BoostSideways(float boostStrength)
-    {
-        if (active)
-        {
-            float verticalBoost = 3f; // Vertical force strength (adjust this value as needed)
-            Vector2 direction = Vector2.zero;
-
-            //"Push" the player, sending them in their faced direction with boost velocity
-            if (movementDirectionX < 0f) 
-            {
-                direction = Vector2.left * boostStrength * 100;
-            } 
-            else if (movementDirectionX > 0f)
-            {
-                direction = Vector2.right * boostStrength * 100;
-            }
-
-            direction += Vector2.up * verticalBoost; // Add upward force for arc
-
-            // Apply the combined force
-            playerRigidbody.AddForce(direction, ForceMode2D.Impulse);
-
-        }
-    }
-
     public void ActivatePlayer()
     {
         if (active == false)
