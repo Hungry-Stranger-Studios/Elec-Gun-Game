@@ -7,6 +7,8 @@ TagManager:
   - Gun_Bullet
   - Coin
   - Fountain
+  - Plug
+  - Spike
   layers:
   - Default
   - TransparentFX
