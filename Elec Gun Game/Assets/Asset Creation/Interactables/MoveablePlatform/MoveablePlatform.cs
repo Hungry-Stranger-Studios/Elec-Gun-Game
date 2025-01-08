@@ -98,5 +98,9 @@ public class MovablePlatform : MonoBehaviour
                 Gizmos.DrawLine(pathPoints[pathPoints.Length - 1].position, pathPoints[0].position);
             }
         }
+
+        //Draw size of platform with Gizmo
+        Gizmos.color = new Color(1, 0, 0, 0.1f);
+        Gizmos.DrawWireCube(transform.position, platformSize);
     }
 }
