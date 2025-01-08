@@ -21,6 +21,7 @@ public class DeathZone : MonoBehaviour
         else if (collision.gameObject.tag == "Enemy")
         {
             //TODO: Add enemy controller script with a kill command.
+            
         }
     }
 
