@@ -7,7 +7,9 @@ public class ButtonController : MonoBehaviour
 {
     [SerializeField] GameObject listeningTrap;
     [SerializeField] Collider2D buttonCollider;
-
+    [SerializeField] float buttonCooldown;
+    private bool coolingDown = false;
+    private float activationTime;
 
     public delegate void ButtonAction();
     public static event ButtonAction OnButtonActivation;
@@ -15,9 +17,11 @@ public class ButtonController : MonoBehaviour
     public void onButtonTrigger()
     {
         //this will trigger when a button is hit with a projectile
-        if(OnButtonActivation != null)
+        if(OnButtonActivation != null && coolingDown == false)
         {
             OnButtonActivation();
+            coolingDown = true;
+            activationTime = Time.time;
         }
     }
 
@@ -26,6 +30,14 @@ public class ButtonController : MonoBehaviour
         if (collision.gameObject.tag.Equals("Gun_Bullet")) {
             //if collider is hit with bullet
             onButtonTrigger();
+        }
+    }
+
+    private void Update()
+    {
+        if(Time.time - activationTime > buttonCooldown && coolingDown == true)
+        {
+            coolingDown = false;
         }
     }
 }

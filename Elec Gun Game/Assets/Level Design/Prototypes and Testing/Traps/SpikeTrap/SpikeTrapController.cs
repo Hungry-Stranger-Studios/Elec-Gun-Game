@@ -52,7 +52,7 @@ public class SpikeTrapController : MonoBehaviour
         }
         if(deathZone.size.x >= maxLength) 
         {
-            trapMoving = false;  
+            trapMoving = false;
         }
     }
     
