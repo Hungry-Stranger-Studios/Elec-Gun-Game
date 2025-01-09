@@ -7,53 +7,87 @@ public class SpikeTrapController : MonoBehaviour
 {
     [Header("Trap Values")]
     [SerializeField] private float maxLength;
-    [SerializeField] private float trapFrames;
-    private float minLength;
-    private float frameIncrement;
+    [SerializeField] private float timeExtended;
+    [SerializeField] private float timeToExtension;
+    [SerializeField] private float timeToRetraction;
 
     [Header("Trap Components")]
     [SerializeField] private BoxCollider2D deathZone;
     [SerializeField] private Sprite trapSprite;
 
-    private bool trapMoving;
+    private float minLength;
+    private float extensionSpeed;
+    private float retractionSpeed;
+
+    private float trapExtendedTime;
+    private bool trapExtending;
+    private bool trapRetracting;
 
     private void Awake()
     {
-        trapMoving = false;
-        //frameIncrement represents how much the box moves per frame
+        trapExtending = false;
         minLength = deathZone.size.x;
-        frameIncrement = (maxLength - minLength) / trapFrames;
-
-    }
-
-    private void OnEnable()
-    {
-        ButtonController.OnButtonActivation += Activate;
-    }
-
-    private void OnDisable()
-    {
-        ButtonController.OnButtonActivation -= Activate;
+        extensionSpeed = (maxLength - minLength) / timeToExtension;
+        retractionSpeed = (maxLength - minLength) / timeToRetraction;
     }
 
     private void Activate()
     {
         Debug.Log("Hit!");
-        trapMoving = true;
+        trapExtending = true;
     }
 
     private void Update()
     {
-        if(trapMoving)
+        if(trapExtending)
         {
+            //check if trap is at maxlength (done extending)
+            if (deathZone.size.x >= maxLength)
+            {
+                //we note the time in order to leave the trap extended for a short while
+                trapExtending = false;
+                trapExtendedTime = Time.time;
+                return;
+            }
+
             //extend to the right by moving the center and changing the size
-            deathZone.offset += new Vector2(frameIncrement/2, 0);
-            deathZone.size += new Vector2(frameIncrement, 0);
+            //changing the size param increases the width on both sides of the center, therefore you need to shift the center
+            deathZone.offset += new Vector2(extensionSpeed * Time.deltaTime/2, 0);
+            deathZone.size += new Vector2(extensionSpeed * Time.deltaTime, 0);
         }
-        if(deathZone.size.x >= maxLength) 
+
+        //In order for the trap to start retracting it must:
+        //be extended (greater size than start) AND no longer be extending
+        if (trapExtending == false && deathZone.size.x >= minLength)
         {
-            trapMoving = false;
+            //been the above conditions for a certain length of time
+            if ((Time.time - trapExtendedTime >= timeExtended))
+            {
+                trapRetracting = true;
+            }
+        }
+
+        if (trapRetracting)
+        {
+            //check if trap is at minlength (done retracting)
+            if (deathZone.size.x <= minLength)
+            {
+                trapRetracting = false;
+                return;
+            }
+            //similar logic to above
+            deathZone.offset -= new Vector2(retractionSpeed * Time.deltaTime / 2, 0);
+            deathZone.size -= new Vector2(retractionSpeed * Time.deltaTime, 0);
         }
     }
-    
+
+    //These two methods are for tying the spiketrap to the button
+    private void OnEnable()
+    {
+        ButtonController.OnButtonActivation += Activate;
+    }
+    private void OnDisable()
+    {
+        ButtonController.OnButtonActivation -= Activate;
+    }
 }

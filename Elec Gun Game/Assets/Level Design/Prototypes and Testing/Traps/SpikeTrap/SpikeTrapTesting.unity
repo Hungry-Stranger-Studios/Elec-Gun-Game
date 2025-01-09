@@ -170,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listeningTrap: {fileID: 2090044606}
   buttonCollider: {fileID: 244016355}
+  buttonCooldown: 3
 --- !u!61 &244016355
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1211,8 +1212,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 455c2942c1c4d33428031eb56532a814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLength: 5
-  trapFrames: 60
+  maxLength: 10
+  timeExtended: 0.5
+  timeToExtension: 1
+  timeToRetraction: 3
   deathZone: {fileID: 803273091}
   trapSprite: {fileID: 0}
 --- !u!1 &2094400534
