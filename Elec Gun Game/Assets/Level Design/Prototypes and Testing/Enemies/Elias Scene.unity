@@ -648,7 +648,7 @@ PrefabInstance:
     - target: {fileID: 1604332710312185681, guid: 88419a13d011e864aa2da25dfc1b7052, type: 3}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: 7101634088739412524, guid: bb3b0df1375e2f3448bf4b83a1d45b80, type: 3}
+      objectReference: {fileID: 236876453977837320, guid: 0f94ae32c13f19b47a978e2af1c4f6a7, type: 3}
     - target: {fileID: 1604332710312185681, guid: 88419a13d011e864aa2da25dfc1b7052, type: 3}
       propertyPath: maxSpawnTime
       value: 3
