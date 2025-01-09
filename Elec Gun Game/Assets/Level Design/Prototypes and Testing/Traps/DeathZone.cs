@@ -29,8 +29,7 @@ public class DeathZone : MonoBehaviour
     {
         //Drawing a collider gizmo
         BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();
-
         Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(boxCollider.transform.position + (Vector3)boxCollider.offset, boxCollider.size);
+        Gizmos.DrawWireCube(boxCollider.bounds.center, boxCollider.bounds.size);
     }
 }
