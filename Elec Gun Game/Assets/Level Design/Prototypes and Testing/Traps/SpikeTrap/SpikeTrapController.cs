@@ -7,19 +7,23 @@ public class SpikeTrapController : MonoBehaviour
 {
     [Header("Trap Values")]
     [SerializeField] private float maxLength;
-    [SerializeField] private float trapSpeed;
-    [SerializeField] private float minLength;
+    [SerializeField] private float trapFrames;
+    private float minLength;
+    private float frameIncrement;
 
     [Header("Trap Components")]
     [SerializeField] private BoxCollider2D deathZone;
     [SerializeField] private Sprite trapSprite;
 
     private bool trapMoving;
-    private float deathZone_ScaleX, deathZone_ScaleY;
 
     private void Awake()
     {
         trapMoving = false;
+        //frameIncrement represents how much the box moves per frame
+        minLength = deathZone.size.x;
+        frameIncrement = (maxLength - minLength) / trapFrames;
+
     }
 
     private void OnEnable()
@@ -30,7 +34,6 @@ public class SpikeTrapController : MonoBehaviour
     private void OnDisable()
     {
         ButtonController.OnButtonActivation -= Activate;
-        trapMoving = false;
     }
 
     private void Activate()
@@ -43,7 +46,13 @@ public class SpikeTrapController : MonoBehaviour
     {
         if(trapMoving)
         {
-            deathZone.size += 
+            //extend to the right by moving the center and changing the size
+            deathZone.offset += new Vector2(frameIncrement/2, 0);
+            deathZone.size += new Vector2(frameIncrement, 0);
+        }
+        if(deathZone.size.x >= maxLength) 
+        {
+            trapMoving = false;  
         }
     }
     

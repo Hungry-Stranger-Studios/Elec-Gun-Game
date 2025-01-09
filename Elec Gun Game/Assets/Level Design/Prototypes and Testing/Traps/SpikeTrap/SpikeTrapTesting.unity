@@ -1211,8 +1211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 455c2942c1c4d33428031eb56532a814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapLength: 0
-  trapSpeed: 0
+  maxLength: 5
+  trapFrames: 60
   deathZone: {fileID: 803273091}
   trapSprite: {fileID: 0}
 --- !u!1 &2094400534
