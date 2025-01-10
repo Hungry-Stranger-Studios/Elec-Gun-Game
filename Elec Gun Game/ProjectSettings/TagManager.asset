@@ -7,6 +7,7 @@ TagManager:
   - Gun_Bullet
   - Gun
   - Checkpoint
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX

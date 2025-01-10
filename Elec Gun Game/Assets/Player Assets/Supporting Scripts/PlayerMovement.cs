@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     private bool active = true;   //Boolean for when the player has inputs turned off such as when it is respawning or paused
 
     private float moveSpeed;
+    private float dashTime;
     private float checkSpeed;
     private bool moveCancelled;
     private bool isSprinting;
@@ -139,7 +140,6 @@ public class PlayerMovement : MonoBehaviour
 
         //applying player velocity
         playerRigidbody.velocity = new Vector2(moveSpeed, playerRigidbody.velocity.y);
-        
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -201,21 +201,22 @@ public class PlayerMovement : MonoBehaviour
                 {
                     speedModifier += 3f;
                     isSprinting = true;
+                    dashTime = Time.time;
                 }
             }   
         }
+    }
+
+    public float GetLastDashTime() { 
+        return dashTime;
     }
 
     public void BoostUpwards(float boostStrength)
     {
         if (active)
         {
-            if (isGrounded)
-            {
-                //"Uppercut" the player, sending them up with boost velocity
-                playerRigidbody.AddForce(Vector2.up * boostStrength, ForceMode2D.Impulse);
-                CheckIfGrounded();
-            }
+            //"Uppercut" the player, sending them up with boost velocity
+            playerRigidbody.AddForce(Vector2.up * boostStrength, ForceMode2D.Impulse);
         }
     }
 

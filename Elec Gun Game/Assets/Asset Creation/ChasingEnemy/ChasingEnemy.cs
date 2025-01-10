@@ -32,6 +32,11 @@ public class ChasingEnemyScript : MonoBehaviour
         {
             int includedLayer = LayerMask.NameToLayer("LevelElements");
 
+            if (collision.gameObject.CompareTag("MovingPlatform")) //Remove Moving Platforms (Need to be in Ground layer for jumping)
+            {
+                collision.gameObject.SetActive(false);
+            }
+            
             if (collision.gameObject.layer != includedLayer) //Keep ground, checkpoints and respawn points
             {
                 return; 

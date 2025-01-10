@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class MovablePlatform : MonoBehaviour
 {
@@ -10,17 +11,8 @@ public class MovablePlatform : MonoBehaviour
     [SerializeField] private bool loop = true;       //Keeps going after one path
     [SerializeField] private bool pingPong = false;  //Whether the platform moves back and forth
 
-    [Header("Platform Settings")]
-    [SerializeField] private Vector3 platformSize = new Vector3(2f, 0.5f, 1f); //Adjustable size of platform
-
     private int currentTargetIndex = 0; //Current target point in the path
     private int direction = 1;         //Movement direction for Ping-Pong
-
-    private void Start()
-    {
-        //Initial size of platform
-        transform.localScale = platformSize;
-    }
 
     private void Update()
     {
@@ -28,10 +20,10 @@ public class MovablePlatform : MonoBehaviour
 
         //Move towards the current target point
         Transform targetPoint = pathPoints[currentTargetIndex];
-        transform.position = Vector3.MoveTowards(transform.position, targetPoint.position, moveSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, targetPoint.position, moveSpeed * Time.deltaTime);
 
         //Check if the platform has reached the current target point
-        if (Vector3.Distance(transform.position, targetPoint.position) < 0.1f)
+        if (Vector2.Distance(transform.position, targetPoint.position) < 0.1f)
         {
             //Update target point based on movement mode
             if (pingPong)
@@ -98,9 +90,5 @@ public class MovablePlatform : MonoBehaviour
                 Gizmos.DrawLine(pathPoints[pathPoints.Length - 1].position, pathPoints[0].position);
             }
         }
-
-        //Draw size of platform with Gizmo
-        Gizmos.color = new Color(1, 0, 0, 0.1f);
-        Gizmos.DrawWireCube(transform.position, platformSize);
     }
 }

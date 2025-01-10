@@ -29,7 +29,7 @@ public class LevelStateController : MonoBehaviour
     private bool IsPermanentObject(GameObject obj)
     {
         int excludedLayer = LayerMask.NameToLayer("LevelElements");
-        return obj.layer != excludedLayer;
+        return obj.layer != excludedLayer && !obj.CompareTag("MovingPlatform");
     }
 
     public void ResetLevel()

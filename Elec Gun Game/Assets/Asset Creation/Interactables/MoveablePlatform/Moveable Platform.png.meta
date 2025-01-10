@@ -1,0 +1,242 @@
+fileFormatVersion: 2
+guid: 8aea57d4471932342ba1facf125af355
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 1, y: 0, z: 1, w: 1}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Moveable Platform_0: -1431126316
+      Moveable Platform_1: 422452358
+      Moveable Platform_10: 1739653375
+      Moveable Platform_100: 512907273
+      Moveable Platform_101: -561491686
+      Moveable Platform_102: 250854603
+      Moveable Platform_103: 366579633
+      Moveable Platform_104: 2049516225
+      Moveable Platform_105: 61916255
+      Moveable Platform_106: 1598952949
+      Moveable Platform_107: -1610354053
+      Moveable Platform_108: -44749639
+      Moveable Platform_109: -937861396
+      Moveable Platform_11: 422163575
+      Moveable Platform_110: -261116032
+      Moveable Platform_111: 1949490967
+      Moveable Platform_112: -317023826
+      Moveable Platform_113: -833830793
+      Moveable Platform_114: 2117660468
+      Moveable Platform_115: -2132559137
+      Moveable Platform_116: 755189125
+      Moveable Platform_117: 1320527523
+      Moveable Platform_118: -157103807
+      Moveable Platform_119: -1205527967
+      Moveable Platform_12: 1520331637
+      Moveable Platform_120: -296879461
+      Moveable Platform_121: 1715700261
+      Moveable Platform_122: 856264743
+      Moveable Platform_123: 445829344
+      Moveable Platform_124: -1862772160
+      Moveable Platform_125: -1651072750
+      Moveable Platform_126: -1756162207
+      Moveable Platform_127: -1992826744
+      Moveable Platform_13: 161549033
+      Moveable Platform_14: 631749554
+      Moveable Platform_15: 839760477
+      Moveable Platform_16: -260782334
+      Moveable Platform_17: 1727444032
+      Moveable Platform_18: 382284669
+      Moveable Platform_19: -287420674
+      Moveable Platform_2: -675715839
+      Moveable Platform_20: -1709643469
+      Moveable Platform_21: 938505074
+      Moveable Platform_22: 879011267
+      Moveable Platform_23: 257523749
+      Moveable Platform_24: -1987315174
+      Moveable Platform_25: 716043055
+      Moveable Platform_26: 412173796
+      Moveable Platform_27: -2077542447
+      Moveable Platform_28: 1183568601
+      Moveable Platform_29: -1496818179
+      Moveable Platform_3: 2097468698
+      Moveable Platform_30: -1498632272
+      Moveable Platform_31: -706886553
+      Moveable Platform_32: 1525234807
+      Moveable Platform_33: 489448624
+      Moveable Platform_34: 1734819095
+      Moveable Platform_35: -305688370
+      Moveable Platform_36: -1650927225
+      Moveable Platform_37: -2081459996
+      Moveable Platform_38: 1117464203
+      Moveable Platform_39: 146158500
+      Moveable Platform_4: 1105135689
+      Moveable Platform_40: -122556682
+      Moveable Platform_41: 477015559
+      Moveable Platform_42: -1514568623
+      Moveable Platform_43: 97854876
+      Moveable Platform_44: 1587579117
+      Moveable Platform_45: -1719801401
+      Moveable Platform_46: 1959265811
+      Moveable Platform_47: 1475398331
+      Moveable Platform_48: -667212753
+      Moveable Platform_49: 2140334204
+      Moveable Platform_5: 707674205
+      Moveable Platform_50: 1876370522
+      Moveable Platform_51: 1315287565
+      Moveable Platform_52: -2047154629
+      Moveable Platform_53: 1884143636
+      Moveable Platform_54: 1319426206
+      Moveable Platform_55: -117021053
+      Moveable Platform_56: 597826817
+      Moveable Platform_57: -1180140221
+      Moveable Platform_58: -1055259315
+      Moveable Platform_59: 400780331
+      Moveable Platform_6: -270606364
+      Moveable Platform_60: 1944987983
+      Moveable Platform_61: 768297053
+      Moveable Platform_62: 421508151
+      Moveable Platform_63: -576745916
+      Moveable Platform_64: -1149044450
+      Moveable Platform_65: -232448619
+      Moveable Platform_66: 608263153
+      Moveable Platform_67: 1404332192
+      Moveable Platform_68: -1175075759
+      Moveable Platform_69: -1214914395
+      Moveable Platform_7: -1086774676
+      Moveable Platform_70: 1841638257
+      Moveable Platform_71: -138984173
+      Moveable Platform_72: -1654989705
+      Moveable Platform_73: -2024029655
+      Moveable Platform_74: -116530127
+      Moveable Platform_75: -1178028130
+      Moveable Platform_76: 1528681109
+      Moveable Platform_77: 1948413368
+      Moveable Platform_78: -1889080954
+      Moveable Platform_79: 1473037486
+      Moveable Platform_8: -2056483714
+      Moveable Platform_80: 1385944710
+      Moveable Platform_81: 1787438896
+      Moveable Platform_82: -1225684196
+      Moveable Platform_83: 1396433716
+      Moveable Platform_84: -2014402693
+      Moveable Platform_85: -849286616
+      Moveable Platform_86: 469647175
+      Moveable Platform_87: -1332388875
+      Moveable Platform_88: 2082905214
+      Moveable Platform_89: -837179223
+      Moveable Platform_9: 667414176
+      Moveable Platform_90: -1090732720
+      Moveable Platform_91: -1319667704
+      Moveable Platform_92: -1639798873
+      Moveable Platform_93: -165416603
+      Moveable Platform_94: 1917715966
+      Moveable Platform_95: -1238524894
+      Moveable Platform_96: -1284339170
+      Moveable Platform_97: 719724820
+      Moveable Platform_98: 1698479960
+      Moveable Platform_99: 1043615189
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
