@@ -13,7 +13,7 @@ public class SpikeTrapController : MonoBehaviour
 
     [Header("Trap Components")]
     [SerializeField] private BoxCollider2D deathZone;
-    [SerializeField] private Sprite trapSprite;
+    [SerializeField] private Transform trapBody;
 
     private float minLength;
     private float extensionSpeed;
@@ -22,6 +22,7 @@ public class SpikeTrapController : MonoBehaviour
     private float trapExtendedTime;
     private bool trapExtending;
     private bool trapRetracting;
+
 
     private void Awake()
     {
@@ -37,9 +38,11 @@ public class SpikeTrapController : MonoBehaviour
         trapExtending = true;
     }
 
-    private void Update()
+    
+    
+    private void deathZoneExtension()
     {
-        if(trapExtending)
+        if (trapExtending)
         {
             //check if trap is at maxlength (done extending)
             if (deathZone.size.x >= maxLength)
@@ -52,8 +55,11 @@ public class SpikeTrapController : MonoBehaviour
 
             //extend to the right by moving the center and changing the size
             //changing the size param increases the width on both sides of the center, therefore you need to shift the center
-            deathZone.offset += new Vector2(extensionSpeed * Time.deltaTime/2, 0);
+            deathZone.offset += new Vector2(extensionSpeed * Time.deltaTime / 2, 0);
             deathZone.size += new Vector2(extensionSpeed * Time.deltaTime, 0);
+            //moving and changing the actual object
+            trapBody.position += new Vector3(extensionSpeed * Time.deltaTime / 2, 0, 0);
+            trapBody.localScale += new Vector3(extensionSpeed * Time.deltaTime, 0, 0);
         }
 
         //In order for the trap to start retracting it must:
@@ -78,7 +84,21 @@ public class SpikeTrapController : MonoBehaviour
             //similar logic to above
             deathZone.offset -= new Vector2(retractionSpeed * Time.deltaTime / 2, 0);
             deathZone.size -= new Vector2(retractionSpeed * Time.deltaTime, 0);
+
+            trapBody.position -= new Vector3(retractionSpeed * Time.deltaTime / 2, 0, 0);
+            trapBody.localScale -= new Vector3(retractionSpeed * Time.deltaTime, 0, 0);
         }
+    }
+
+    private void trapBodyExtension()
+    {
+
+    }
+
+    private void Update()
+    {
+        deathZoneExtension();
+        trapBodyExtension();
     }
 
     //These two methods are for tying the spiketrap to the button

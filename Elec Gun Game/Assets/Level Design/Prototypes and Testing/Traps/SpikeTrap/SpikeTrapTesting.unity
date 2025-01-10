@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listeningTrap: {fileID: 2090044606}
   buttonCollider: {fileID: 244016355}
-  buttonCooldown: 3
+  buttonCooldown: 8
 --- !u!61 &244016355
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1217,7 +1217,7 @@ MonoBehaviour:
   timeToExtension: 1
   timeToRetraction: 3
   deathZone: {fileID: 803273091}
-  trapSprite: {fileID: 0}
+  trapBody: {fileID: 2094400535}
 --- !u!1 &2094400534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,6 +1228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2094400535}
   - component: {fileID: 2094400536}
+  - component: {fileID: 2094400537}
   m_Layer: 0
   m_Name: TrapBody
   m_TagString: Untagged
@@ -1302,6 +1303,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2094400537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094400534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aceff2e78d0efdb42a93ece857e03f86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
