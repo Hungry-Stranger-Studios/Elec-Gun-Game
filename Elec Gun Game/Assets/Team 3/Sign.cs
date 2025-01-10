@@ -17,7 +17,7 @@ public class Sign : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && isClose)
+        if(Input.GetKeyDown(KeyCode.Q) && isClose)
         {
             if (dialoguePanel.activeInHierarchy)
             {

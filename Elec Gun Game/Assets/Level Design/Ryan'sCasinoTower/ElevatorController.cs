@@ -11,7 +11,7 @@ public class ElevatorController : MonoBehaviour
 
     public float doorMoveSpeed = 2f;
     private float doorMoveDistance = 5f;
-    private float elevatorRaiseAmount = 5f;
+    public float elevatorRaiseAmount = 25f;
 
     private bool isPlayerInElevator = false;
     private bool isDoorLOpen = false;
