@@ -3,7 +3,6 @@ using UnityEngine;
 public class RightDoorDetection : MonoBehaviour
 {
     private ElevatorController elevatorController;
-    private bool isExitHandled = false; // Ensures only one side processes the exit
 
     private void Start()
     {
@@ -12,15 +11,9 @@ public class RightDoorDetection : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !isExitHandled)
+        if (other.CompareTag("Player"))
         {
-            isExitHandled = true; // Mark exit as handled
             elevatorController.HandlePlayerExit("right");
         }
-    }
-
-    public void ResetExit()
-    {
-        isExitHandled = false; // Reset when elevator logic resets
     }
 }

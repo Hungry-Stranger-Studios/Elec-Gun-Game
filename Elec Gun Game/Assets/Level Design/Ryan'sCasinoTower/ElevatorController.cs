@@ -17,6 +17,7 @@ public class ElevatorController : MonoBehaviour
     private bool isDoorLOpen = false;
     private bool isDoorROpen = false;
     private bool hasElevatorRisen = false;
+    private int floorLevel = 0;
 
     private LeftDoorDetection leftDoorDetection;
     private RightDoorDetection rightDoorDetection;
@@ -30,7 +31,7 @@ public class ElevatorController : MonoBehaviour
 
         leftDoorDetection = FindObjectOfType<LeftDoorDetection>();
         rightDoorDetection = FindObjectOfType<RightDoorDetection>();
-        StartCoroutine(OpenDoor(elevatorDoorL, doorMoveDistance));
+        StartCoroutine(OpenDoors());
     }
 
     public void PlayerEnteredInside()
@@ -63,19 +64,13 @@ public class ElevatorController : MonoBehaviour
 
     private IEnumerator HandleInsideTrigger()
     {
-        if (isDoorLOpen)
-        {
-            yield return StartCoroutine(CloseDoor(elevatorDoorL, doorMoveDistance));
-        }
-        if (isDoorROpen)
-        {
-            yield return StartCoroutine(CloseDoor(elevatorDoorR, doorMoveDistance));
-        }
+        yield return StartCoroutine(CloseDoors());
 
         yield return StartCoroutine(MoveElevator(Vector3.up * elevatorRaiseAmount, 3f));
+
         hasElevatorRisen = true;
 
-        yield return StartCoroutine(OpenBothDoorsSimultaneously());
+        yield return StartCoroutine(OpenDoors());
     }
 
     private IEnumerator OpenDoor(GameObject door, float openHeight)
@@ -118,16 +113,74 @@ public class ElevatorController : MonoBehaviour
         if (door == elevatorDoorR) isDoorROpen = false;
     }
 
-    private IEnumerator OpenBothDoorsSimultaneously()
+    private IEnumerator OpenDoors()
     {
-        IEnumerator leftDoorCoroutine = OpenDoor(elevatorDoorL, doorMoveDistance);
-        IEnumerator rightDoorCoroutine = OpenDoor(elevatorDoorR, doorMoveDistance);
+        // If both doors are already open, exit early
+        if (isDoorLOpen && isDoorROpen)
+        {
+            yield break;
+        }
 
-        // Run both door coroutines in parallel
-        yield return StartCoroutine(leftDoorCoroutine);
-        yield return StartCoroutine(rightDoorCoroutine);
+        float totalDistance = 0f;
 
+        // Continue moving both doors until they are fully open
+        while (totalDistance < doorMoveDistance)
+        {
+            float moveDistance = Mathf.Min(doorMoveSpeed * Time.deltaTime, doorMoveDistance - totalDistance);
+
+            // Move both doors upwards by the same distance
+            if (!isDoorLOpen)
+            {
+                elevatorDoorL.transform.Translate(Vector3.up * moveDistance);
+            }
+            if (!isDoorROpen)
+            {
+                elevatorDoorR.transform.Translate(Vector3.up * moveDistance);
+            }
+
+            totalDistance += moveDistance;
+            yield return null;
+        }
+
+        // Mark both doors as open
+        isDoorLOpen = true;
+        isDoorROpen = true;
     }
+
+    private IEnumerator CloseDoors()
+    {
+        // If both doors are already closed, exit early
+        if (!isDoorLOpen && !isDoorROpen)
+        {
+            yield break;
+        }
+
+        float totalDistance = 0f;
+
+        // Continue moving both doors until they are fully closed
+        while (totalDistance < doorMoveDistance)
+        {
+            float moveDistance = Mathf.Min(doorMoveSpeed * Time.deltaTime, doorMoveDistance - totalDistance);
+
+            // Move both doors downwards by the same distance
+            if (isDoorLOpen)
+            {
+                elevatorDoorL.transform.Translate(Vector3.down * moveDistance);
+            }
+            if (isDoorROpen)
+            {
+                elevatorDoorR.transform.Translate(Vector3.down * moveDistance);
+            }
+
+            totalDistance += moveDistance;
+            yield return null;
+        }
+
+        // Mark both doors as closed
+        isDoorLOpen = false;
+        isDoorROpen = false;
+    }
+
 
     private IEnumerator MoveElevator(Vector3 moveDirection, float duration)
     {
