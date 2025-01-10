@@ -14,6 +14,8 @@ public class SpikeTrapController : MonoBehaviour
     [Header("Trap Components")]
     [SerializeField] private BoxCollider2D deathZone;
     [SerializeField] private Transform trapBody;
+    [SerializeField] private ButtonController linkedButton;
+
 
     private float minLength;
     private float extensionSpeed;
@@ -30,6 +32,11 @@ public class SpikeTrapController : MonoBehaviour
         minLength = deathZone.size.x;
         extensionSpeed = (maxLength - minLength) / timeToExtension;
         retractionSpeed = (maxLength - minLength) / timeToRetraction;
+    
+        if(linkedButton != null)
+        {
+            linkedButton.OnButtonActivation += Activate;
+        }
     }
 
     private void Activate()
@@ -38,9 +45,7 @@ public class SpikeTrapController : MonoBehaviour
         trapExtending = true;
     }
 
-    
-    
-    private void deathZoneExtension()
+    private void Update()
     {
         if (trapExtending)
         {
@@ -88,26 +93,5 @@ public class SpikeTrapController : MonoBehaviour
             trapBody.position -= new Vector3(retractionSpeed * Time.deltaTime / 2, 0, 0);
             trapBody.localScale -= new Vector3(retractionSpeed * Time.deltaTime, 0, 0);
         }
-    }
-
-    private void trapBodyExtension()
-    {
-
-    }
-
-    private void Update()
-    {
-        deathZoneExtension();
-        trapBodyExtension();
-    }
-
-    //These two methods are for tying the spiketrap to the button
-    private void OnEnable()
-    {
-        ButtonController.OnButtonActivation += Activate;
-    }
-    private void OnDisable()
-    {
-        ButtonController.OnButtonActivation -= Activate;
     }
 }

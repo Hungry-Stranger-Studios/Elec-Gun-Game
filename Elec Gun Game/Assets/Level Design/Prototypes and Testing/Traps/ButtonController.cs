@@ -12,14 +12,14 @@ public class ButtonController : MonoBehaviour
     private float activationTime;
 
     public delegate void ButtonAction();
-    public static event ButtonAction OnButtonActivation;
+    public event ButtonAction OnButtonActivation;
 
     public void onButtonTrigger()
     {
         //this will trigger when a button is hit with a projectile
         if(OnButtonActivation != null && coolingDown == false)
         {
-            OnButtonActivation();
+            OnButtonActivation.Invoke();
             coolingDown = true;
             activationTime = Time.time;
         }
