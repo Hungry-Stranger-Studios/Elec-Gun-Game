@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     private bool isDecelerating;
 
+  
 
     private void Awake()
     {
@@ -244,5 +245,7 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(groundCheckOffset + (Vector2)playerTransform.position, groundCheckRadius);
     }
+
+  
 }
 

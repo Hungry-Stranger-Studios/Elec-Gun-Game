@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Gun_Bullet
+  - Coin
+  - Fountain
+  - Plug
+  - Spike
   layers:
   - Default
   - TransparentFX
