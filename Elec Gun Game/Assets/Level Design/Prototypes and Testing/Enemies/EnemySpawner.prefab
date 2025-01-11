@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6271f4df3d63b9242957d489e770301a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numEnemiesPerRound: 3
+  timeBetweenRounds: 0
+  numRounds: 1
   enemyPrefab: {fileID: 3043623681795317759, guid: a600e8b513fcb354b9b2fbd284d57887, type: 3}
   minSpawnTime: 2
   maxSpawnTime: 5
