@@ -44,9 +44,11 @@ public class FanTrapController : MonoBehaviour
     {
         if (fanBlowing)
         {
+            Debug.Log("She blowing");
             //Check if fan should stop blowing
-            if(startedBlowing - Time.time > fanDuration)
+            if(Time.time - startedBlowing > fanDuration)
             {
+                Debug.Log("Deactivated Fan Trap");
                 fanBlowing = false;
                 return;
             }

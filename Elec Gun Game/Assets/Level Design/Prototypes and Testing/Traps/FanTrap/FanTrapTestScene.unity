@@ -246,7 +246,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 405890142}
-  - {fileID: 587676210}
+  - {fileID: 1097744875}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &587676209
@@ -259,6 +259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 587676210}
   - component: {fileID: 587676213}
+  - component: {fileID: 587676214}
   m_Layer: 0
   m_Name: FanTrap
   m_TagString: Untagged
@@ -275,12 +276,11 @@ Transform:
   m_GameObject: {fileID: 587676209}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.35, y: -0.6, z: 0.06438275}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.00007828981, z: 0.2615605}
+  m_LocalScale: {x: 1, y: 0.097857386, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1097744875}
-  m_Father: {fileID: 577978334}
+  m_Children: []
+  m_Father: {fileID: 1097744875}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &587676213
 MonoBehaviour:
@@ -294,15 +294,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857a7f9371c7f5f4fb94eeb7cc27c96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blowDirection: {x: 1, y: 0}
-  maxForce: 10
+  blowDirection: {x: -1, y: 0}
+  maxForce: 100
   minForce: 2
-  blowZoneRadius: 5
+  blowZoneRadius: 7
   affectedLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   fanDuration: 10
   linkedButton: {fileID: 405890140}
+--- !u!61 &587676214
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587676209}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -3.755959, y: -0.017674446}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.5710382, y: 10.231571}
+  m_EdgeRadius: 0
 --- !u!4 &762841369 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7540187320578593630, guid: a600e8b513fcb354b9b2fbd284d57887, type: 3}
@@ -399,12 +444,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097744874}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00000047683716, y: 2.5792, z: -0.2615605}
-  m_LocalScale: {x: 1, y: 5.059138, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.3500004, y: 1.4123151, z: -0.19717775}
+  m_LocalScale: {x: 1, y: 6.1926856, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 587676210}
+  m_Children:
+  - {fileID: 587676210}
+  m_Father: {fileID: 577978334}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1097744876
 SpriteRenderer:
@@ -894,6 +940,10 @@ PrefabInstance:
     - target: {fileID: 3043623681795317759, guid: a600e8b513fcb354b9b2fbd284d57887, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043623681795317759, guid: a600e8b513fcb354b9b2fbd284d57887, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4532025099331266233, guid: a600e8b513fcb354b9b2fbd284d57887, type: 3}
       propertyPath: m_LocalPosition.x
