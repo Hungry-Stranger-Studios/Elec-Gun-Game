@@ -47,6 +47,11 @@ public class SpikeTrapController : MonoBehaviour
 
     private void Update()
     {
+        
+    }
+
+    private void FixedUpdate()
+    {
         if (trapExtending)
         {
             //check if trap is at maxlength (done extending)
