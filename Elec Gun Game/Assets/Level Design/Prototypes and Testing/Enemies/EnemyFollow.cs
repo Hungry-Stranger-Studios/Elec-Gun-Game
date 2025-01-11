@@ -22,7 +22,7 @@ public class EnemyFollow : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, target.position, 6 * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

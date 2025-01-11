@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="1">
+ <tileset firstgid="1" source="../../Asset Creation/Tilemap/Warehouse Floor.tsx"/>
+ <tileset firstgid="29" name="brick_bg" tilewidth="16" tileheight="16" tilecount="2460" columns="60">
+  <image source="brick_bg.png" width="965" height="659"/>
+ </tileset>
+ <layer id="4" name="Background" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2GWQVmUfB+AHdm0BWxGW7u4OWwFb6e7uBlsBW+nu7gZbAVvp7u4GW4H3mnn5sO/ZhXmXZxfcGT5cH54z53fu85xz7vnP/KJCoVAa0pKO9GQgI5nITBayko3s5CAnUWFkc5GbPOQlH/kpQEEKUZgiFKUYxSlBSUpRmjKUpSrVqE4NalKL2tShLvWoTwMa0ojGYWab0JRmNKcFLWlFa9rQlna0pwMd6URnutCVbnSnPwMYyCAGM4ShDGM4IxjJKEYzhrFhZscxnglMZBKTmcJUpjGdGcxkFrOZw1zmMZ8FLGQlq1jNGtbyZJJQ6Cme5hk2ObaZLWxlG9svkF3HejawMXTh7A52sovd7GEv+9jPAQ5yiMMc4SjHOM4JTnKK0yRzn8lJwS3cytu8w7u8x13czT2k5F5SJYk9exu3cwd3XiSbmijSkJZ0pCcDGclEZrKQlWxkJwc5yUVu8pCXcpSnAo/zBN/yHd/zA8/yHM9TkUpUvkA2+C4vlK1CVapRnRrUpBa1qUNd6lGfBjSkEY1pQlOa0ZwesaydNGkoFEEk1/C+Yx/wIb3pQ9/z2Z704k3eiuVdXijbj/4MYCCDGMwQhjKM4YxgJKMYzRjGMo7xTGAii2JZO/g+fuQnfmYpy1h+PruYJXzNN3HIrmAlq1jNGtayjvVsYCOb2MwWtrKN7exgJ7vYzZlY1g6+j2u5juu5gRu5Kel/s2c5R8jvJEn//+zNJCM5KbiFW7mN27mDO7mLu7mHlNxLKlITRRrSUjyWtctQlvu4nwd4kId4mEd49Hy2BCUpRek4ZB+jHOWpwOM8wZM8xdM8w7M8x/NUpBKVqUJVqlGdjnSiM13oSje68wIv8hIv8wqv8hqvh5l9gx70pBdv8hZv8w7v8h7v8wEf0ps+9KUf/RnAQGYzh7nMYz4LWMhHfMwnfMpnfM4XfBlm9isWsZglfM03fMt3fM8P/MhP/MxSlrGcFaxkFas5yjGOc4KTnOI0v/Arv/E7f/Anf/F3mNl/OMNZzhGKsL9ISgSRXMO1XMf13MCN3MTNJCM5KchODnKSi9zkIS/5yE8BClKIwhShaJjZYhSnBCUpRWnKUJb7uJ8HeJCHeJhHeJTHKEd5KtCQRjSmCU1pRnNa0JJWtKYNbWlH+zCzHehIJzrTha50ozsv8CIv8TKv8Cqv8Tpv0IOe9GI0YxjLOMYzgYlMYjJTmMo0pjODmWFmZzGbOcxlHvNZEBFzLn/q2Gd8zhd8yVcsYjFL2Mo2trODnexiN3vYyz72c4CDHOJwmNkjHOUYxznBSU5FxJzLvzv2B3/yF3/zD2c4yzlSRpotpCI1UaQhLelITwYykiky5rOKSzYzWchKNrKTg5zkIjd5ImPO5YKOFaIwRShKMYpTgpJUpBKVqUJVqlGdGtSkFrWpExnzWcUlW5d61KcBDWlEY5rQlGaRMedya8fa0JZ2tKcDHelEZ3rTh770oz8DGMggBjOEoQyL5VnFJTucEYxkFKMZw1jGMZ4JTGQSk5nCVKYxnRnMZBazmcNclrKM5axgJatYzRrWso71bIjlWcUlu5FNbGYLW9nGdnawk13sZg972cd+DnCQQxzmCEc5xvHI2LuC4B64HD1DcM346BmCe6BeKOF7huCa8dEzBPfA5egZgmvGR88Q3AOXo2cIrnm1Z0j8PUOwK0isPUOwKwj+j8TQM4QzA/7t8yOcnjp4P1dyfoTTUwfv50rOj3B66uD9JNb5Ebyfq/MjYXvq4LnB3/ExP4LXTIieOnjupXbcF5sfwWsmRE8dPPdSO+6L9dTBayZETx0891I77ov11MFrxkdPHfxWE2tPHfxWE2tPHfxWE2tPHfxWr/bU/5sN7rvE2lMH9130nnohH/Exn0T8u3vq4L6L3lOf5hd+5beIhOmpo3fN4WSD+y56T52XfOSnQGTC9NTRu+ZwshfrqZvTgpa0ikyYnjp61xxO9kr31NG75nCy8d1T/wdFzdr8
+  </data>
+ </layer>
+ <layer id="5" name="Traps" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2LsKwCAMBVDHjm2nPv7/Pyu0Tp0iLYqcA3eMJEMETQkAABjF1rqBj5ijLyPNceScrRshbM5Znqw/1kDP9hS/w2pqgP6UXY7sc6Sm5nygvZHeaQC8TcFw8x8EFBcQCAPe
+  </data>
+ </layer>
+ <layer id="8" name="Trap Trigger" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1sENwCAIBVAPDuH+k3YAT1rTqv+9OwaQEEoBAACALPXQtwFSJOzShBoZNzMXX8XQe9NHf5Ct/Z3AIrfUAQCs4cZlJw+1LABZ
+  </data>
+ </layer>
+ <layer id="6" name="Spawners" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1LEJAAAIBLFv3H9lG1cQRBK4FS4BAAAAAADggpoANnkNAPBZAwWfABU=
+  </data>
+ </layer>
+ <layer id="7" name="Keys" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt10EJAAAMA7F6mH+vMzEog0TBvQpNAAAA4L9pBwAAADzkSwHcs60AXQsq0QA6
+  </data>
+ </layer>
+ <layer id="1" name="Base" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2EEKwCAMBECP/v/F/UApVVyiMgM5LuglxrQGcIZ+SQEAwJuV82Uik5xrv860MpPmHmOZNPcYy6TN9BN/a6hTvT+zhwP+qu4z+hWwA/2K01W/w+rOegBl3gxZ
+  </data>
+ </layer>
+ <layer id="9" name="checkpoint" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztzgENAAAIA6AnMLPRjaFukIAE4J5KevsAAAAAAAAAAMAvA0MFAI8=
+  </data>
+ </layer>
+</map>
