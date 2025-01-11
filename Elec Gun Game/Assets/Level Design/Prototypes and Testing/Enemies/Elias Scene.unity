@@ -122,6 +122,72 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &232103279
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4924621817532808504, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+      propertyPath: m_Name
+      value: Electric Trap
+      objectReference: {fileID: 0}
+    - target: {fileID: 6477202201772740122, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+      propertyPath: zoneCollider
+      value: 
+      objectReference: {fileID: 252515945}
+    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.0661707
+      objectReference: {fileID: 0}
+    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.19717775
+      objectReference: {fileID: 0}
+    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+--- !u!61 &252515945 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 466594494710139208, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+  m_PrefabInstance: {fileID: 232103279}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &762841369 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7540187320578593630, guid: a600e8b513fcb354b9b2fbd284d57887, type: 3}
@@ -643,7 +709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1604332710312185681, guid: 88419a13d011e864aa2da25dfc1b7052, type: 3}
       propertyPath: numRounds
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1604332710312185681, guid: 88419a13d011e864aa2da25dfc1b7052, type: 3}
       propertyPath: enemyPrefab
@@ -656,6 +722,10 @@ PrefabInstance:
     - target: {fileID: 1604332710312185681, guid: 88419a13d011e864aa2da25dfc1b7052, type: 3}
       propertyPath: minSpawnTime
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604332710312185681, guid: 88419a13d011e864aa2da25dfc1b7052, type: 3}
+      propertyPath: timeBetweenRounds
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1604332710312185681, guid: 88419a13d011e864aa2da25dfc1b7052, type: 3}
       propertyPath: numEnemiesPerRound
@@ -681,3 +751,4 @@ SceneRoots:
   - {fileID: 1690079997}
   - {fileID: 906528926}
   - {fileID: 6972380304478867194}
+  - {fileID: 232103279}

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-
 public class DeathZone : MonoBehaviour
 {
     [SerializeField] Collider2D zoneCollider;
@@ -21,6 +20,8 @@ public class DeathZone : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Enemy")
         {
+            collision.gameObject.GetComponent<EnemyController>().Death();
+            
             //TODO: Add enemy controller script with a kill command.
 
         }
