@@ -6,7 +6,7 @@ public class EnemyFollow : MonoBehaviour
 {
     private Transform target;
     public float speed = 2f;
-    [SerializeField] private float jumpMult = 25f;
+    //[SerializeField] private float jumpMult = 25f;
     private bool isGrounded;
 
     [SerializeField] private Rigidbody2D enemyRigidbody;
