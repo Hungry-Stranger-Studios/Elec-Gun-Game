@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
-    [SerializeField] GameObject listeningTrap;
-    [SerializeField] Collider2D buttonCollider;
     [SerializeField] float buttonCooldown;
     private bool coolingDown = false;
     private float activationTime;

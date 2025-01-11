@@ -597,7 +597,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a600e8b513fcb354b9b2fbd284d57887, type: 3}
---- !u!1001 &3632173245579595131
+--- !u!1001 &681732111514051315
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -605,47 +605,119 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4924621817532808504, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
-      propertyPath: m_Name
-      value: Electric Trap
-      objectReference: {fileID: 0}
-    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+    - target: {fileID: 889906187610652084, guid: bf6545fdfd61fa448b6b1900ec2b7fa5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.983515
+      value: 28.313515
       objectReference: {fileID: 0}
-    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+    - target: {fileID: 889906187610652084, guid: bf6545fdfd61fa448b6b1900ec2b7fa5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.0661707
+      value: -2.7900295
       objectReference: {fileID: 0}
-    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+    - target: {fileID: 889906187610652084, guid: bf6545fdfd61fa448b6b1900ec2b7fa5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.19717775
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+    - target: {fileID: 889906187610652084, guid: bf6545fdfd61fa448b6b1900ec2b7fa5, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+    - target: {fileID: 889906187610652084, guid: bf6545fdfd61fa448b6b1900ec2b7fa5, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+    - target: {fileID: 889906187610652084, guid: bf6545fdfd61fa448b6b1900ec2b7fa5, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+    - target: {fileID: 889906187610652084, guid: bf6545fdfd61fa448b6b1900ec2b7fa5, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+    - target: {fileID: 889906187610652084, guid: bf6545fdfd61fa448b6b1900ec2b7fa5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+    - target: {fileID: 889906187610652084, guid: bf6545fdfd61fa448b6b1900ec2b7fa5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+    - target: {fileID: 889906187610652084, guid: bf6545fdfd61fa448b6b1900ec2b7fa5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982383613353068041, guid: bf6545fdfd61fa448b6b1900ec2b7fa5, type: 3}
+      propertyPath: m_Name
+      value: ElectricTrap
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945004277471462512, guid: bf6545fdfd61fa448b6b1900ec2b7fa5, type: 3}
+      propertyPath: linkedButton
+      value: 
+      objectReference: {fileID: 2574201950683601930}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bf6545fdfd61fa448b6b1900ec2b7fa5, type: 3}
+--- !u!114 &2574201950683601930 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5438979847666555684, guid: bae53daec4485684187b1efbdf15c352, type: 3}
+  m_PrefabInstance: {fileID: 7457007196686989036}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1885a670a6ae8479eaed326e71ca3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &7457007196686989036
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 648276455331530069, guid: bae53daec4485684187b1efbdf15c352, type: 3}
+      propertyPath: m_Name
+      value: TrapButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868625507551131601, guid: bae53daec4485684187b1efbdf15c352, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 34.293514
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868625507551131601, guid: bae53daec4485684187b1efbdf15c352, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3038292
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868625507551131601, guid: bae53daec4485684187b1efbdf15c352, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868625507551131601, guid: bae53daec4485684187b1efbdf15c352, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868625507551131601, guid: bae53daec4485684187b1efbdf15c352, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868625507551131601, guid: bae53daec4485684187b1efbdf15c352, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868625507551131601, guid: bae53daec4485684187b1efbdf15c352, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868625507551131601, guid: bae53daec4485684187b1efbdf15c352, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868625507551131601, guid: bae53daec4485684187b1efbdf15c352, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868625507551131601, guid: bae53daec4485684187b1efbdf15c352, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
@@ -653,7 +725,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: bae53daec4485684187b1efbdf15c352, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -664,4 +736,5 @@ SceneRoots:
   - {fileID: 1618471839}
   - {fileID: 1690079997}
   - {fileID: 906528926}
-  - {fileID: 3632173245579595131}
+  - {fileID: 681732111514051315}
+  - {fileID: 7457007196686989036}
