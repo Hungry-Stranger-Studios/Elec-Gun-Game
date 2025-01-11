@@ -6,57 +6,35 @@ using UnityEngine;
 
 public class DeathZone : MonoBehaviour
 {
-    [Header("DeathZone Components")]
-    [SerializeField]    private LayerMask affectedLayers;
-    [SerializeField]    private BoxCollider2D zoneCollider;
-
-    public DeathZone(LayerMask affectedLayers, BoxCollider2D newZoneCollider)
-    {
-        this.affectedLayers = affectedLayers;
-        
-        BoxCollider2D existingCollider = gameObject.GetComponent<BoxCollider2D>();
-        //Destroy existing collider if there already is one
-        if(existingCollider != null)
-        {
-            Destroy(existingCollider);
-        }
-        //add new collider to the deathZone component
-        gameObject.AddComponent<BoxCollider2D>();
-        if(gameObject.GetComponent<BoxCollider2D>() == null)
-        {
-            Debug.LogAssertion("Failed to create new collider");
-            return;
-        }
-        zoneCollider = gameObject.GetComponent<BoxCollider2D>();
-
-        zoneCollider.enabled = true;
-        zoneCollider.isTrigger = true;
-        zoneCollider.includeLayers = affectedLayers;
-        zoneCollider.size = newZoneCollider.size;
-        zoneCollider.offset = newZoneCollider.offset;
-    }
-
+    [SerializeField] LayerMask affectedLayers;
+    [SerializeField] Collider2D zoneCollider;
 
     private void Awake()
     {
-        
+        zoneCollider = GetComponent<Collider2D>();
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //If the object being killed is a player
-        if ((1 << collision.gameObject.layer & affectedLayers) !=  0) {
-            if(collision.gameObject.tag == "Player")
-            {
-                collision.gameObject.GetComponent<PlayerMovement>().KillPlayer();
-            }
-            else if (collision.gameObject.tag == "Enemy")
-            {
-                //TODO: Add enemy controller script with a kill command.
-
-            }
+        if(collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<PlayerMovement>().KillPlayer();
         }
+        else if (collision.gameObject.tag == "Enemy")
+        {
+            //TODO: Add enemy controller script with a kill command.
+
+        }
+    }
+
+    public void Disable()
+    {
+        zoneCollider.enabled = false;
+    }
+
+    public void Enable()
+    {
+        zoneCollider.enabled = true;
     }
 
     private void OnDrawGizmos()

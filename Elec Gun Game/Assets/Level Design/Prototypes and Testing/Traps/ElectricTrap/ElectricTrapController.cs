@@ -1,19 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ElectricTrapController : MonoBehaviour
 {
     [Header("Trap Settings")]
-    [SerializeField] private LayerMask affectedLayers; //Layers to be affected by the trap
     [SerializeField] private float trapDuration = 10f; //How long the trap will be on
-
+    [SerializeField] private DeathZone deathZone;
 
     [Header("Trap Components")]
     [SerializeField] private ButtonController linkedButton;
-    [SerializeField] private Transform parentTransform;
 
-    private bool trapActivated = false;
     private float trapStarted = 0;
 
     private void Awake()
@@ -26,23 +24,22 @@ public class ElectricTrapController : MonoBehaviour
         {
             Debug.LogWarning("No button linked to trap!");
         }
-        //you need to link the parent's transform so you know the dimensions of the trap
-        if(parentTransform == null)
+        
+        if(deathZone != null)
         {
-            Debug.LogWarning("No Transform linked to trap!");
+            deathZone.Disable();
+        }
+        else
+        {
+            Debug.LogWarning("No DeathZone linked to trap!");
         }
     }
 
     private void Activate()
     {
         Debug.Log("Activated Electric Trap");
-        trapActivated = true;
         trapStarted = Time.time;
-        CreateDeathZone();
-    }
-    private void CreateDeathZone()
-    {
-
+        deathZone.Enable();
     }
 
 
