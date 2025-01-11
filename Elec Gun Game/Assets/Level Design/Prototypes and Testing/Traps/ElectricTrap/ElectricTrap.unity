@@ -877,7 +877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listeningTrap: {fileID: 5317546911453156974}
   buttonCollider: {fileID: 6418291127113167608}
-  buttonCooldown: 8
+  buttonCooldown: 12
 --- !u!61 &6418291127113167608
 BoxCollider2D:
   m_ObjectHideFlags: 0

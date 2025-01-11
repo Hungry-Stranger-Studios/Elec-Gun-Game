@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class DeathZone : MonoBehaviour
 {
-    [SerializeField] LayerMask affectedLayers;
     [SerializeField] Collider2D zoneCollider;
 
     private void Awake()
@@ -37,7 +36,7 @@ public class DeathZone : MonoBehaviour
         zoneCollider.enabled = true;
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         //Drawing a collider gizmo
         BoxCollider2D boxCollider = GetComponent<BoxCollider2D>();

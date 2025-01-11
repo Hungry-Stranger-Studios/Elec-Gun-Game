@@ -13,6 +13,7 @@ public class ElectricTrapController : MonoBehaviour
     [SerializeField] private ButtonController linkedButton;
 
     private float trapStarted = 0;
+    private bool trapActivated = false;
 
     private void Awake()
     {
@@ -40,18 +41,19 @@ public class ElectricTrapController : MonoBehaviour
         Debug.Log("Activated Electric Trap");
         trapStarted = Time.time;
         deathZone.Enable();
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        trapActivated = true;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (trapActivated)
+        {
+            if (Time.time - trapStarted > trapDuration)
+            {
+                Debug.Log("Deactivated Electric Trap");
+                deathZone.Disable();
+            }
+        }
     }
 }
