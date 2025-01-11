@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Collider2D zoneCollider;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        zoneCollider = GetComponent<Collider2D>();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<PlayerMovement>().KillPlayer();
+        }
+    }
+    public void Death(){
+        Destroy(gameObject);
+        EnemySpawner.DecrementEnemyCount();
+        Debug.Log("Enemy Killed");
+
     }
 }
