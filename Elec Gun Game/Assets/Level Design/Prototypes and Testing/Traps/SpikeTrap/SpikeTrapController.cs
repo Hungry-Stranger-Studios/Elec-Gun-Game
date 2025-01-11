@@ -6,10 +6,11 @@ using UnityEngine;
 public class SpikeTrapController : MonoBehaviour
 {
     [Header("Trap Values")]
-    [SerializeField] private float maxLength;
-    [SerializeField] private float timeExtended;
-    [SerializeField] private float timeToExtension;
-    [SerializeField] private float timeToRetraction;
+    [SerializeField] private float maxLength = 1f;
+    [SerializeField] private float timeExtended = 1f;
+    [SerializeField] private float timeToExtension = 1f;
+    [SerializeField] private float timeToRetraction = 1f;
+    [SerializeField] private Vector2 trapDirection = Vector2.right;
 
     [Header("Trap Components")]
     [SerializeField] private BoxCollider2D deathZone;
@@ -44,6 +45,16 @@ public class SpikeTrapController : MonoBehaviour
         else
         {
             Debug.LogWarning("No button linked to trap!");
+        }
+        
+        if(deathZone == null)
+        {
+            Debug.LogWarning("No DeathZone linked to trap!");
+        }
+
+        if(trapBody == null)
+        {
+            Debug.LogWarning("No transform linked to trap!");
         }
     }
 
