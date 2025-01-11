@@ -134,13 +134,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fan Trap
       objectReference: {fileID: 0}
+    - target: {fileID: 4434003395187492166, guid: 71f2822844aa5cc469d8836060de8571, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434003395187492166, guid: 71f2822844aa5cc469d8836060de8571, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.03
+      objectReference: {fileID: 0}
     - target: {fileID: 5402603955450675415, guid: 71f2822844aa5cc469d8836060de8571, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.67
+      value: 15.44
       objectReference: {fileID: 0}
     - target: {fileID: 5402603955450675415, guid: 71f2822844aa5cc469d8836060de8571, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.48
+      value: -0.55
       objectReference: {fileID: 0}
     - target: {fileID: 5402603955450675415, guid: 71f2822844aa5cc469d8836060de8571, type: 3}
       propertyPath: m_LocalPosition.z

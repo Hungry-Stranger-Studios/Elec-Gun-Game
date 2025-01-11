@@ -53,6 +53,7 @@ public class ElectricTrapController : MonoBehaviour
             {
                 Debug.Log("Deactivated Electric Trap");
                 deathZone.Disable();
+                trapActivated = false;
             }
         }
     }
