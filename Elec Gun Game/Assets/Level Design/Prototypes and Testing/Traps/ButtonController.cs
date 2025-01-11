@@ -17,6 +17,7 @@ public class ButtonController : MonoBehaviour
         //this will trigger when a button is hit with a projectile
         if(OnButtonActivation != null && coolingDown == false)
         {
+            Debug.Log("Button Activated");
             OnButtonActivation.Invoke();
             coolingDown = true;
             activationTime = Time.time;
@@ -36,6 +37,7 @@ public class ButtonController : MonoBehaviour
         if(Time.time - activationTime > buttonCooldown && coolingDown == true)
         {
             coolingDown = false;
+            Debug.Log("Button Ready");
         }
     }
 }
