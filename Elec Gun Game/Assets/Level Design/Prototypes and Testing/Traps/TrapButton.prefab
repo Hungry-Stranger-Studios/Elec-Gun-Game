@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6868625507551131601}
   - component: {fileID: 138295391788244008}
+  - component: {fileID: 496005007292047709}
+  - component: {fileID: 7059543249205206239}
   m_Layer: 0
   m_Name: TrapButton
   m_TagString: Untagged
@@ -29,8 +31,7 @@ Transform:
   m_LocalPosition: {x: 34.293514, y: -1.3038292, z: 0}
   m_LocalScale: {x: 0.4394, y: 1.1734613, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6779760071155528171}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &138295391788244008
@@ -85,59 +86,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &6383731871350644140
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6779760071155528171}
-  - component: {fileID: 5438979847666555684}
-  - component: {fileID: 3066503361091404124}
-  m_Layer: 0
-  m_Name: ActivationButton
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6779760071155528171
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6383731871350644140}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5, y: 3.2531276, z: 0.2615605}
-  m_LocalScale: {x: 1, y: 2.6616983, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6868625507551131601}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5438979847666555684
+--- !u!114 &496005007292047709
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6383731871350644140}
+  m_GameObject: {fileID: 648276455331530069}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a1885a670a6ae8479eaed326e71ca3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonCooldown: 12
---- !u!61 &3066503361091404124
+  buttonCooldown: 3
+--- !u!61 &7059543249205206239
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6383731871350644140}
+  m_GameObject: {fileID: 648276455331530069}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -163,16 +131,16 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.4970636, y: -1.2126034}
+  m_Offset: {x: -0.004926741, y: -0.0013012588}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0718555, y: 0.44310075}
+  m_Size: {x: 1.102173, y: 1.0336108}
   m_EdgeRadius: 0

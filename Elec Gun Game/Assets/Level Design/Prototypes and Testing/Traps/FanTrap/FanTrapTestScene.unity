@@ -137,7 +137,7 @@ PrefabInstance:
     - target: {fileID: 4345703575231934195, guid: 71f2822844aa5cc469d8836060de8571, type: 3}
       propertyPath: linkedButton
       value: 
-      objectReference: {fileID: 1071526660}
+      objectReference: {fileID: 0}
     - target: {fileID: 4434003395187492166, guid: 71f2822844aa5cc469d8836060de8571, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.49
@@ -146,6 +146,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 6.03
       objectReference: {fileID: 0}
+    - target: {fileID: 4609610173961286629, guid: 71f2822844aa5cc469d8836060de8571, type: 3}
+      propertyPath: linkedButton
+      value: 
+      objectReference: {fileID: 1061007188}
     - target: {fileID: 5402603955450675415, guid: 71f2822844aa5cc469d8836060de8571, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.44
@@ -327,9 +331,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f0d33dc4f66e7e48928322e6cb8c52b, type: 3}
---- !u!114 &1071526660 stripped
+--- !u!114 &1061007188 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5438979847666555684, guid: bae53daec4485684187b1efbdf15c352, type: 3}
+  m_CorrespondingSourceObject: {fileID: 496005007292047709, guid: bae53daec4485684187b1efbdf15c352, type: 3}
   m_PrefabInstance: {fileID: 539627198}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
