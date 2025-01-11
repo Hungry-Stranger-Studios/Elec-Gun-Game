@@ -14,7 +14,7 @@ public class DeathZone : MonoBehaviour
     {
         this.affectedLayers = affectedLayers;
         
-        BoxCollider2D existingCollider = GetComponent<BoxCollider2D>();
+        BoxCollider2D existingCollider = gameObject.GetComponent<BoxCollider2D>();
         //Destroy existing collider if there already is one
         if(existingCollider != null)
         {
@@ -36,11 +36,6 @@ public class DeathZone : MonoBehaviour
         zoneCollider.offset = newZoneCollider.offset;
     }
 
-    public DeathZone() 
-    {
-        affectedLayers = GetComponent<LayerMask>();
-        zoneCollider = GetComponent<BoxCollider2D>();
-    }
 
     private void Awake()
     {

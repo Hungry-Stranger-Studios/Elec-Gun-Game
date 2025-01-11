@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!61 &219000293 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 975612881254558006, guid: b3960b88348dd8a49acd0b41732859e7, type: 3}
+  m_PrefabInstance: {fileID: 1133110239751448233}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &762841369 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7540187320578593630, guid: a600e8b513fcb354b9b2fbd284d57887, type: 3}
@@ -550,6 +555,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3043623681795317759, guid: a600e8b513fcb354b9b2fbd284d57887, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4532025099331266233, guid: a600e8b513fcb354b9b2fbd284d57887, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.38
@@ -912,6 +921,14 @@ PrefabInstance:
     - target: {fileID: 1483321212227303325, guid: b3960b88348dd8a49acd0b41732859e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509280784483784234, guid: b3960b88348dd8a49acd0b41732859e7, type: 3}
+      propertyPath: zoneCollider
+      value: 
+      objectReference: {fileID: 219000293}
+    - target: {fileID: 3509280784483784234, guid: b3960b88348dd8a49acd0b41732859e7, type: 3}
+      propertyPath: affectedLayers.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 8379635610767396967, guid: b3960b88348dd8a49acd0b41732859e7, type: 3}
       propertyPath: m_Name
