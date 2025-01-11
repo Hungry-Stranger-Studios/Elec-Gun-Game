@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="50" height="150" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="1">
+ <tileset firstgid="1" name="brick_bg" tilewidth="16" tileheight="16" tilecount="2460" columns="60">
+  <image source="../Prototypes and Testing/brick_bg.png" width="965" height="659"/>
+ </tileset>
+ <tileset firstgid="2461" source="../../Asset Creation/Tilemap/Warehouse Floor.tsx"/>
+ <layer id="1" name="Background" width="50" height="150">
+  <data encoding="base64" compression="zlib">
+   eJztmjV2HFEQRduBZsywBDMHZlRgRi3BbMt2YEYFZtRSzKjAjFqKGRWY8U7QC+jX/u135lRwM736quhOVXVLS5bVoA69oQ/0hX7QHwbAQBgEg2EItBTIFPlbpX6emQfzYQEshEWwGJbAUlgGy2EFrIS2gpnU9fPMITgMR+AoHIPjcAJOwik4DWfgLHQWzKSun2duwW24A3fhHtyHB/AQHsFjeAJPobtgJnX9PPMJPsMX+Arf4Dv8gJ/wC37DH8hqWdarViyTun6emQSTYQpMhWkwHWbATJgFs2EOzIXWgpnU9fPMNtgOO2An7ILdsAf2wj7YDwfgIHQUzKSun2fOwXm4ABfhElyGK3AVrsF1uAE3oatgJnX9PPMMnsMLeAmv4DW8gbfwDt7DB/gIPQUzqevnmaH1LBsGw2EEjIRRMBrGwFgYB+NhAkysF8ukrp9nUvvW0c1V+bwqd6b2eVXuTO3zqtyZ2udVuTO1z6tyZ2qfV+XO1D6vyp2pfV6VO1P7vKpZOHwePg+fh8/D5+Hz8Hn4PHwePg+fh8/D5+Hz8Pn/9bnyhqPPlTccfa684ehz5Q1HnytvOPpcecPR58objj5X3nD0ufKGo8+VNxx9HvO5l89jPvfyecznXj6P+dzL5zGfh8/D5+Hz8Hn4PHwePg+f/3ufN8O+Xdmfu/q8Gfbtyv7c1efNsG9X9ueuPm+GfbuyP3f1eTPs25X9uaPPq/rN4Hg/VzKO93Ml43g/VzKO93Ml43g/VzKO93Ml43g/VzKO93Ml0yzudJyF49szr1k4vj3zmoXj2zOvWTi+PfOahePbMy+fx63ay+dxq/byedyqvXwet2ovn7veqp3cX8bnTu4v43Mn95fxuZP7y/jcyf1lfO7k/jI+d3J/GZ87ub+Mz53cX8bnTu7PM26zubqfd5vN1f2822yu7ufdZnN1P+82m6v7ebfZXN3Pu83m6n7ebTZX9/Nus7m6n3ebzdX9vJvLGxmlDzeXt4m9u7m8U+zdzeXdYu9uLm9klN7dXN4q9u7m8g6xdzeXd4m9u7m8R+zdzeWNjNK74/1c6d3xfr6K/2s1rIG1sA7WwwbYCJugHTbDFthaj/t53M/jfh7387ifx/1cq684J3VGqf8XJLfjuA==
+  </data>
+ </layer>
+ <layer id="2" name="Base" width="50" height="150">
+  <data encoding="base64" compression="zlib">
+   eJzt1kEJAAAIBEG/9q9gUEsIwjED22GrAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIB00xkBAHDr+++U2QKPt4cp
+  </data>
+ </layer>
+ <layer id="3" name="KeyRegions" width="50" height="150">
+  <data encoding="base64" compression="zlib">
+   eJzt0cEJgDAMBdBeu/8AjuCKnoQSQ6uC5OB7EAoNhJ+2NQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPivrV/Ps7L+bEalLPeYK/ZnMyrdefd4N+4W60v7g/lZplW+6r+Atw7UlxcJ
+  </data>
+ </layer>
+ <layer id="4" name="Trap" width="50" height="150">
+  <data encoding="base64" compression="zlib">
+   eJzt1LkNACAQA7Br2X8VnvWgYATEJ1tKnzSJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbpLT6QZr/LID4HVl/HGdab6ZDTof8gR3
+  </data>
+ </layer>
+ <layer id="5" name="TrapTrigger" width="50" height="150">
+  <data encoding="base64" compression="zlib">
+   eJzt1LEJADAIRFFb918ghYNmh0QQ5D345bUXAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0Ofk+7ZyRwCTfn4YOlyGViMd
+  </data>
+ </layer>
+ <layer id="6" name="EnemySpawner" width="50" height="150">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20JT6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4GdTAAAQ==
+  </data>
+ </layer>
+</map>
