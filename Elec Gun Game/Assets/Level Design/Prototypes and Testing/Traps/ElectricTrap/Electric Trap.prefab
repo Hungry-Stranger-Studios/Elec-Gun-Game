@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3dda48dcb9ac1e498ea35d1a2625aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapDuration: 3
+  trapDuration: 12
   deathZone: {fileID: 6477202201772740122}
   linkedButton: {fileID: 1283936405498499441}
 --- !u!1 &2541350443205658090
@@ -423,7 +423,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 22.31, y: -4.37, z: -0.19717775}
-  m_LocalScale: {x: 0.4394, y: 1.1734613, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.1734613, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5145378699117882185}
