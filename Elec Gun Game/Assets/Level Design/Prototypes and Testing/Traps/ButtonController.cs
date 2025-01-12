@@ -8,6 +8,7 @@ public class ButtonController : MonoBehaviour
     [SerializeField] GameObject listeningTrap;
     [SerializeField] Collider2D buttonCollider;
     [SerializeField] float buttonCooldown;
+    [SerializeField] Animator buttonAnimator;  // Add this line
     private bool coolingDown = false;
     private float activationTime;
 
@@ -23,6 +24,11 @@ public class ButtonController : MonoBehaviour
             coolingDown = true;
             activationTime = Time.time;
         }
+        if (buttonAnimator != null)
+            {
+                buttonAnimator.SetTrigger("Activated"); 
+                Debug.Log("Should call activated funct in animator");
+            }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

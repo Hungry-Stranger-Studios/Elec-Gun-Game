@@ -130,6 +130,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1283936405498499441, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+      propertyPath: buttonAnimator
+      value: 
+      objectReference: {fileID: 877487028}
     - target: {fileID: 4924621817532808504, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
       propertyPath: m_Name
       value: Electric Trap
@@ -138,6 +142,14 @@ PrefabInstance:
       propertyPath: zoneCollider
       value: 
       objectReference: {fileID: 252515945}
+    - target: {fileID: 6994689526244452831, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -952621469, guid: 6e218082d5fe1488cb3f41fc27c649e3, type: 3}
+    - target: {fileID: 6994689526244452831, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8477486497581745687, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.8
@@ -181,7 +193,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8958123303596925157, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1977227274}
+    - targetCorrespondingSourceObject: {fileID: 6566861980546802667, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 877487028}
+    - targetCorrespondingSourceObject: {fileID: 6566861980546802667, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 877487029}
   m_SourcePrefab: {fileID: 100100000, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
 --- !u!61 &252515945 stripped
 BoxCollider2D:
@@ -198,6 +219,84 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 2200599097080048011, guid: 5f3977b5059b27a428cf6cf8ddc1dc3c, type: 3}
   m_PrefabInstance: {fileID: 1690079997}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &877487024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6566861980546802667, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+  m_PrefabInstance: {fileID: 232103279}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &877487028
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877487024}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2c3bef1fdabcb487da07e12f58728546, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!212 &877487029
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877487024}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1001 &906528926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -659,6 +758,32 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a600e8b513fcb354b9b2fbd284d57887, type: 3}
+--- !u!1 &1977227271 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8958123303596925157, guid: 0f39a4fcd86322542ada9b2588ddd12f, type: 3}
+  m_PrefabInstance: {fileID: 232103279}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1977227274
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977227271}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2c3bef1fdabcb487da07e12f58728546, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &6972380304478867194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -709,7 +834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1604332710312185681, guid: 88419a13d011e864aa2da25dfc1b7052, type: 3}
       propertyPath: numRounds
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1604332710312185681, guid: 88419a13d011e864aa2da25dfc1b7052, type: 3}
       propertyPath: enemyPrefab
@@ -729,7 +854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1604332710312185681, guid: 88419a13d011e864aa2da25dfc1b7052, type: 3}
       propertyPath: numEnemiesPerRound
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8897929823366577493, guid: 88419a13d011e864aa2da25dfc1b7052, type: 3}
       propertyPath: m_Name
