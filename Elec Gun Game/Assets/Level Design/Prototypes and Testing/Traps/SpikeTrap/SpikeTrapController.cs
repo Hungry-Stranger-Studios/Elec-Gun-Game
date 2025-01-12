@@ -10,7 +10,6 @@ public class SpikeTrapController : MonoBehaviour
     [SerializeField] private float timeExtended = 1f;
     [SerializeField] private float timeToExtension = 1f;
     [SerializeField] private float timeToRetraction = 1f;
-    [SerializeField] private Vector2 trapDirection = Vector2.right;
 
     [Header("Trap Components")]
     [SerializeField] private BoxCollider2D deathZone;
