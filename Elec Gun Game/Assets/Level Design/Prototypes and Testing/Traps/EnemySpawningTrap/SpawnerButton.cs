@@ -1,43 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnerButton : MonoBehaviour
 {
-    //Edit this in the unity editor if you would like a cooldown. Otherwise it will only activate once.
-    [SerializeField] float buttonCooldown = Mathf.Infinity;
+    [Header("Button Settings")]
+    [SerializeField] private float buttonCooldown = 2f; // Cooldown before the button can be reactivated
     private bool coolingDown = false;
     private float activationTime;
-    //This is for making a unity event work
+
     public delegate void ButtonAction();
     public event ButtonAction OnButtonActivation;
 
-    public void onButtonTrigger()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        //this will trigger when a button is hit with a projectile
-        if (OnButtonActivation != null && !coolingDown)
+        if (collision.CompareTag("Player") && !coolingDown)
         {
-            OnButtonActivation.Invoke();
-            coolingDown = true;
-            activationTime = Time.time;
+            ActivateButton();
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void ActivateButton()
     {
-        //PUT YOUR CUSTOM "ACTIVATOR" HERE
-        //i.e., for a touch-button
-        if(collision.gameObject.tag == "Player")
-        {
-            //use this method to activate whatever you want
-            onButtonTrigger();
-        }
+        Debug.Log("Button activated.");
+        OnButtonActivation.Invoke();
+        coolingDown = true;
+        activationTime = Time.time;
     }
 
     private void Update()
     {
-        //NOTE: If you do not want a cooldown, get rid of this line and the serialized field. Its a decent memory waster otherwise.
-        if (Time.time - activationTime > buttonCooldown && coolingDown == true)
+        if (coolingDown && Time.time - activationTime >= buttonCooldown)
         {
             coolingDown = false;
         }
