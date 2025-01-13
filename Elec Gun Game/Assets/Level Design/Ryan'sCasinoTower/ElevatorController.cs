@@ -7,13 +7,15 @@ public class ElevatorController : MonoBehaviour
     public GameObject elevatorRoof;
     public GameObject elevatorDoorL;
     public GameObject elevatorDoorR;
+    public GameObject elevatorDoorLTrigger;
+    public GameObject elevatorDoorRTrigger;
+    public GameObject elevatorDoorInsideTrigger;
     public GameObject player;
 
     public float doorMoveSpeed = 2f;
     private float doorMoveDistance = 5f;
     public float elevatorRaiseAmount = 25f;
 
-    private bool isPlayerInElevator = false;
     private bool isDoorLOpen = false;
     private bool isDoorROpen = false;
     private bool hasElevatorRisen = false;
@@ -36,11 +38,7 @@ public class ElevatorController : MonoBehaviour
 
     public void PlayerEnteredInside()
     {
-        if (!isPlayerInElevator)
-        {
-            isPlayerInElevator = true;
-            StartCoroutine(HandleInsideTrigger());
-        }
+        StartCoroutine(HandleInsideTrigger());
     }
 
     public void HandlePlayerExit(string side)
@@ -50,13 +48,13 @@ public class ElevatorController : MonoBehaviour
             return;
         }
 
-        if (side == "left" && !isDoorROpen)
+        if (side == "left")
         {
-            StartCoroutine(OpenDoor(elevatorDoorR, doorMoveDistance));
+            StartCoroutine(CloseDoor(elevatorDoorR, doorMoveDistance));
         }
-        else if (side == "right" && !isDoorLOpen)
+        else if (side == "right")
         {
-            StartCoroutine(OpenDoor(elevatorDoorL, doorMoveDistance));
+            StartCoroutine(CloseDoor(elevatorDoorL, doorMoveDistance));
         }
 
         hasElevatorRisen = false;
@@ -194,11 +192,18 @@ public class ElevatorController : MonoBehaviour
             elevatorRoof.transform.Translate(moveDirection * step);
             elevatorDoorL.transform.Translate(moveDirection * step);
             elevatorDoorR.transform.Translate(moveDirection * step);
+            elevatorDoorLTrigger.transform.Translate(moveDirection * step);
+            elevatorDoorRTrigger.transform.Translate(moveDirection * step);
+            elevatorDoorInsideTrigger.transform.Translate(moveDirection * step);
             player.transform.Translate(moveDirection * step);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
+        floorLevel += 1;
+        if (floorLevel == 2)
+        {
+            elevatorRaiseAmount += 70;
+        }
     }
 
  

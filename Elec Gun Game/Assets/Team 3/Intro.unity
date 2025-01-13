@@ -5017,6 +5017,9 @@ MonoBehaviour:
   elevatorRoof: {fileID: 551293937}
   elevatorDoorL: {fileID: 1257734735}
   elevatorDoorR: {fileID: 2015575560}
+  elevatorDoorLTrigger: {fileID: 62325220}
+  elevatorDoorRTrigger: {fileID: 507892423}
+  elevatorDoorInsideTrigger: {fileID: 2101875003}
   player: {fileID: 1115455278}
   doorMoveSpeed: 2
   elevatorRaiseAmount: 25

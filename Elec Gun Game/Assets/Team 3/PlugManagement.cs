@@ -1,20 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlugManagement : MonoBehaviour
 {
     public PlugManager plugMan;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private InsideElevatorLogic elevatorLogic;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        // Find and reference the InsideElevatorLogic
+        elevatorLogic = FindObjectOfType<InsideElevatorLogic>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -24,6 +18,12 @@ public class PlugManagement : MonoBehaviour
             Destroy(other.gameObject);
             plugMan.plugCount++;
             Debug.Log("Plug obtained");
+
+            // Reset elevator usage when a plug is deleted
+            if (elevatorLogic != null)
+            {
+                elevatorLogic.ResetElevatorUsage();
+            }
         }
     }
 }
