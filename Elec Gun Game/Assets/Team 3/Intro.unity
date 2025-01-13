@@ -575,7 +575,7 @@ PrefabInstance:
     - target: {fileID: 8762390538350311402, guid: 24ac28657ff1f114da494ff711a5932f, type: 3}
       propertyPath: coinMan
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1037642163}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -633,6 +633,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlotMachine (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8762390538350311402, guid: 24ac28657ff1f114da494ff711a5932f, type: 3}
+      propertyPath: coinMan
+      value: 
+      objectReference: {fileID: 1037642163}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5617,7 +5621,7 @@ PrefabInstance:
     - target: {fileID: 8762390538350311402, guid: 24ac28657ff1f114da494ff711a5932f, type: 3}
       propertyPath: coinMan
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1037642163}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6365,7 +6369,7 @@ PrefabInstance:
     - target: {fileID: 8762390538350311402, guid: 24ac28657ff1f114da494ff711a5932f, type: 3}
       propertyPath: coinMan
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1037642163}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9417,19 +9421,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 187172781894268528, guid: 24ac28657ff1f114da494ff711a5932f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9996579
       objectReference: {fileID: 0}
     - target: {fileID: 187172781894268528, guid: 24ac28657ff1f114da494ff711a5932f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 187172781894268528, guid: 24ac28657ff1f114da494ff711a5932f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.026155027
       objectReference: {fileID: 0}
     - target: {fileID: 187172781894268528, guid: 24ac28657ff1f114da494ff711a5932f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 187172781894268528, guid: 24ac28657ff1f114da494ff711a5932f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9437,7 +9441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 187172781894268528, guid: 24ac28657ff1f114da494ff711a5932f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -2.997
       objectReference: {fileID: 0}
     - target: {fileID: 187172781894268528, guid: 24ac28657ff1f114da494ff711a5932f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -10293,7 +10297,7 @@ PrefabInstance:
     - target: {fileID: 8762390538350311402, guid: 24ac28657ff1f114da494ff711a5932f, type: 3}
       propertyPath: coinMan
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1037642163}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12956,6 +12960,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlotMachine (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8762390538350311402, guid: 24ac28657ff1f114da494ff711a5932f, type: 3}
+      propertyPath: coinMan
+      value: 
+      objectReference: {fileID: 1037642163}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14321,6 +14329,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8762390538350311402, guid: 24ac28657ff1f114da494ff711a5932f, type: 3}
+      propertyPath: coinMan
+      value: 
+      objectReference: {fileID: 1037642163}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

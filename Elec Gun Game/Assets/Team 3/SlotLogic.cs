@@ -9,7 +9,7 @@ public class SlotLogic : MonoBehaviour
     public int outcome;
     public CoinManager coinMan;
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -17,7 +17,7 @@ public class SlotLogic : MonoBehaviour
         }
     }
 
-    public void OnTriggerExit(Collider other)
+    public void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
