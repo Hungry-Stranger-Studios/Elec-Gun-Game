@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 4429300d1d859984492a9d73c98855b0, type: 2}
+    - target: {fileID: 3623991942785049191, guid: bb3b0df1375e2f3448bf4b83a1d45b80, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2006231628, guid: 3f029de839e95cc45ad8d92cede6ee9c, type: 3}
     - target: {fileID: 6488748523042084217, guid: bb3b0df1375e2f3448bf4b83a1d45b80, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.47
@@ -64,7 +68,8 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6036309198366628298, guid: bb3b0df1375e2f3448bf4b83a1d45b80, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -74,6 +79,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7101634088739412524, guid: bb3b0df1375e2f3448bf4b83a1d45b80, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8933157360131995897}
+    - targetCorrespondingSourceObject: {fileID: 7101634088739412524, guid: bb3b0df1375e2f3448bf4b83a1d45b80, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6244901185618470498}
   m_SourcePrefab: {fileID: 100100000, guid: bb3b0df1375e2f3448bf4b83a1d45b80, type: 3}
 --- !u!1 &236876453977837320 stripped
 GameObject:
@@ -138,6 +146,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &6244901185618470498
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236876453977837320}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 800127eb4ce2c6e4bb574d4f5a63e908, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!61 &1430344864962807889 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 8223014785650220405, guid: bb3b0df1375e2f3448bf4b83a1d45b80, type: 3}

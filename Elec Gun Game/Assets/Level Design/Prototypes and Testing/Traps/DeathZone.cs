@@ -21,6 +21,7 @@ public class DeathZone : MonoBehaviour
         else if (collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<EnemyController>().Death();
+            Debug.Log("Death() called in EnemyController");
             
             //TODO: Add enemy controller script with a kill command.
 
