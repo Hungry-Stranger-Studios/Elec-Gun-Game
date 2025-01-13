@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
-    [SerializeField] GameObject listeningTrap;
-    [SerializeField] Collider2D buttonCollider;
     [SerializeField] float buttonCooldown;
     private bool coolingDown = false;
     private float activationTime;
@@ -19,6 +17,7 @@ public class ButtonController : MonoBehaviour
         //this will trigger when a button is hit with a projectile
         if(OnButtonActivation != null && coolingDown == false)
         {
+            Debug.Log("Button Activated");
             OnButtonActivation.Invoke();
             coolingDown = true;
             activationTime = Time.time;
@@ -38,6 +37,7 @@ public class ButtonController : MonoBehaviour
         if(Time.time - activationTime > buttonCooldown && coolingDown == true)
         {
             coolingDown = false;
+            Debug.Log("Button Ready");
         }
     }
 }

@@ -6,10 +6,10 @@ using UnityEngine;
 public class SpikeTrapController : MonoBehaviour
 {
     [Header("Trap Values")]
-    [SerializeField] private float maxLength;
-    [SerializeField] private float timeExtended;
-    [SerializeField] private float timeToExtension;
-    [SerializeField] private float timeToRetraction;
+    [SerializeField] private float maxLength = 1f;
+    [SerializeField] private float timeExtended = 1f;
+    [SerializeField] private float timeToExtension = 1f;
+    [SerializeField] private float timeToRetraction = 1f;
 
     [Header("Trap Components")]
     [SerializeField] private BoxCollider2D deathZone;
@@ -24,11 +24,15 @@ public class SpikeTrapController : MonoBehaviour
     private float trapExtendedTime;
     private bool trapExtending;
     private bool trapRetracting;
+    private bool trapActivated;
 
 
     private void Awake()
     {
         trapExtending = false;
+        trapRetracting = false;
+        trapActivated = false;
+        trapExtendedTime = 0;
         minLength = deathZone.size.x;
         extensionSpeed = (maxLength - minLength) / timeToExtension;
         retractionSpeed = (maxLength - minLength) / timeToRetraction;
@@ -37,15 +41,38 @@ public class SpikeTrapController : MonoBehaviour
         {
             linkedButton.OnButtonActivation += Activate;
         }
+        else
+        {
+            Debug.LogWarning("No button linked to trap!");
+        }
+        
+        if(deathZone == null)
+        {
+            Debug.LogWarning("No DeathZone linked to trap!");
+        }
+
+        if(trapBody == null)
+        {
+            Debug.LogWarning("No transform linked to trap!");
+        }
     }
 
     private void Activate()
     {
-        Debug.Log("Hit!");
+        Debug.Log("Spike Trap Activated");
         trapExtending = true;
+        trapActivated = true;
     }
 
-    private void Update()
+    private void FixedUpdate()
+    {
+        if (trapActivated)
+        {
+            SpikeTrap();
+        }
+    }
+
+    private void SpikeTrap()
     {
         if (trapExtending)
         {
@@ -55,6 +82,7 @@ public class SpikeTrapController : MonoBehaviour
                 //we note the time in order to leave the trap extended for a short while
                 trapExtending = false;
                 trapExtendedTime = Time.time;
+                Debug.Log("Spike Trap Finished Extending");
                 return;
             }
 
@@ -72,9 +100,10 @@ public class SpikeTrapController : MonoBehaviour
         if (trapExtending == false && deathZone.size.x >= minLength)
         {
             //been the above conditions for a certain length of time
-            if ((Time.time - trapExtendedTime >= timeExtended))
+            if ((Time.time - trapExtendedTime >= timeExtended) && !trapRetracting)
             {
                 trapRetracting = true;
+                Debug.Log("Spike Trap Retracting");
             }
         }
 
@@ -84,6 +113,8 @@ public class SpikeTrapController : MonoBehaviour
             if (deathZone.size.x <= minLength)
             {
                 trapRetracting = false;
+                trapActivated = false;
+                Debug.Log("Spike Trap Deactivated");
                 return;
             }
             //similar logic to above
