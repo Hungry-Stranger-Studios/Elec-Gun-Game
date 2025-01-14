@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3dda48dcb9ac1e498ea35d1a2625aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapDuration: 3
+  trapDuration: 7
   deathZone: {fileID: 998231883189224072}
   linkedButton: {fileID: 0}
 --- !u!1 &1982383613353068041
@@ -269,4 +269,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4df8b671477fac7468c9242ad458dc36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoneCollider: {fileID: 0}
+  zoneCollider: {fileID: 3182756888691518826}
