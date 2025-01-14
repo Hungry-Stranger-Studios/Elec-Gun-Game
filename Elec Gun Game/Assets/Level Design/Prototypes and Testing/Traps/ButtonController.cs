@@ -8,9 +8,21 @@ public class ButtonController : MonoBehaviour
     [SerializeField] float buttonCooldown;
     private bool coolingDown = false;
     private float activationTime;
+    private Animator animator;
 
     public delegate void ButtonAction();
     public event ButtonAction OnButtonActivation;
+
+     private void Awake()
+    {
+        // Assign the Animator component
+        animator = GetComponent<Animator>();
+
+        if (animator == null)
+        {
+            Debug.LogWarning("Animator component not found on ButtonController GameObject.");
+        }
+    }
 
     public void onButtonTrigger()
     {
@@ -22,6 +34,11 @@ public class ButtonController : MonoBehaviour
             coolingDown = true;
             activationTime = Time.time;
         }
+        if (animator != null)
+            {
+                animator.SetTrigger("Activated"); 
+                Debug.Log("Should call activated funct in animator");
+            }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
