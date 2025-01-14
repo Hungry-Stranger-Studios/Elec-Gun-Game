@@ -88,11 +88,11 @@ public class SpikeTrapController : MonoBehaviour
 
             //extend to the right by moving the center and changing the size
             //changing the size param increases the width on both sides of the center, therefore you need to shift the center
-            deathZone.offset += new Vector2(extensionSpeed * Time.deltaTime / 2, 0);
-            deathZone.size += new Vector2(extensionSpeed * Time.deltaTime, 0);
+            deathZone.offset += new Vector2(extensionSpeed * Time.fixedDeltaTime / 2, 0);
+            deathZone.size += new Vector2(extensionSpeed * Time.fixedDeltaTime, 0);
             //moving and changing the actual object
-            trapBody.position += new Vector3(extensionSpeed * Time.deltaTime / 2, 0, 0);
-            trapBody.localScale += new Vector3(extensionSpeed * Time.deltaTime, 0, 0);
+            trapBody.position += new Vector3(extensionSpeed * Time.fixedDeltaTime / 2, 0, 0);
+            trapBody.localScale += new Vector3(extensionSpeed * Time.fixedDeltaTime, 0, 0);
         }
 
         //In order for the trap to start retracting it must:
@@ -118,11 +118,11 @@ public class SpikeTrapController : MonoBehaviour
                 return;
             }
             //similar logic to above
-            deathZone.offset -= new Vector2(retractionSpeed * Time.deltaTime / 2, 0);
-            deathZone.size -= new Vector2(retractionSpeed * Time.deltaTime, 0);
+            deathZone.offset -= new Vector2(retractionSpeed * Time.fixedDeltaTime / 2, 0);
+            deathZone.size -= new Vector2(retractionSpeed * Time.fixedDeltaTime, 0);
 
-            trapBody.position -= new Vector3(retractionSpeed * Time.deltaTime / 2, 0, 0);
-            trapBody.localScale -= new Vector3(retractionSpeed * Time.deltaTime, 0, 0);
+            trapBody.position -= new Vector3(retractionSpeed * Time.fixedDeltaTime / 2, 0, 0);
+            trapBody.localScale -= new Vector3(retractionSpeed * Time.fixedDeltaTime, 0, 0);
         }
     }
 }
