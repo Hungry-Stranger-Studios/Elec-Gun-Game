@@ -11,7 +11,7 @@
  </layer>
  <layer id="2" name="Base" width="50" height="150">
   <data encoding="base64" compression="zlib">
-   eJzt1kEJAAAIBEG/9q9gUEsIwjED22GrAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIB00xkBAHDr+++U2QKPt4cp
+   eJzt1EEOQDAQBVBb978AiSvgemprJRXTUe8ls+30p/xhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgtIzfmihT2TUH7oPMWvwLa9m5ldkrdtd2SbYe6yHHk7PkeOe7unMnOfLluHZihhxRd4h+D4CWWvelXgX+pnWfmj7nAIbyZ/Y=
   </data>
  </layer>
  <layer id="3" name="KeyRegions" width="50" height="150">
@@ -21,17 +21,12 @@
  </layer>
  <layer id="4" name="Trap" width="50" height="150">
   <data encoding="base64" compression="zlib">
-   eJzt1LkNACAQA7Br2X8VnvWgYATEJ1tKnzSJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbpLT6QZr/LID4HVl/HGdab6ZDTof8gR3
+   eJzt1TsKgDAQQMG03v8CCh7Bz/W0ULRUcCVZZmDbhJctUgoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZjN01LdNRl3tHyy066pKlg+cGe06pt9fXpuA3m/fzl2PWwLuiOwD41l//A5w2cC8Zqw==
   </data>
  </layer>
  <layer id="5" name="TrapTrigger" width="50" height="150">
   <data encoding="base64" compression="zlib">
-   eJzt1LEJADAIRFFb918ghYNmh0QQ5D345bUXAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0Ofk+7ZyRwCTfn4YOlyGViMd
-  </data>
- </layer>
- <layer id="6" name="EnemySpawner" width="50" height="150">
-  <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20JT6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4GdTAAAQ==
+   eJztzkENAAAIBKD72r+AUY3hppCABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIArurYHfDceaQCq
   </data>
  </layer>
 </map>
