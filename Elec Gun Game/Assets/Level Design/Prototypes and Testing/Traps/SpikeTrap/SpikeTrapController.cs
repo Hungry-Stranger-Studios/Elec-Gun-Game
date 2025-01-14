@@ -12,7 +12,7 @@ public class SpikeTrapController : MonoBehaviour
     [SerializeField] private float timeToRetraction = 1f;
 
     [Header("Trap Components")]
-    [SerializeField] private BoxCollider2D deathZone;
+    [SerializeField] private DeathZone deathZone;
     [SerializeField] private Transform trapBody;
     [SerializeField] private ButtonController linkedButton;
 
@@ -33,7 +33,7 @@ public class SpikeTrapController : MonoBehaviour
         trapRetracting = false;
         trapActivated = false;
         trapExtendedTime = 0;
-        minLength = deathZone.size.x;
+        minLength = trapBody.localScale.x;
         extensionSpeed = (maxLength - minLength) / timeToExtension;
         retractionSpeed = (maxLength - minLength) / timeToRetraction;
     
@@ -46,7 +46,11 @@ public class SpikeTrapController : MonoBehaviour
             Debug.LogWarning("No button linked to trap!");
         }
         
-        if(deathZone == null)
+        if(deathZone != null)
+        {
+            deathZone.Disable();
+        }
+        else
         {
             Debug.LogWarning("No DeathZone linked to trap!");
         }
@@ -62,6 +66,7 @@ public class SpikeTrapController : MonoBehaviour
         Debug.Log("Spike Trap Activated");
         trapExtending = true;
         trapActivated = true;
+        deathZone.Enable();
     }
 
     private void FixedUpdate()
@@ -77,7 +82,7 @@ public class SpikeTrapController : MonoBehaviour
         if (trapExtending)
         {
             //check if trap is at maxlength (done extending)
-            if (deathZone.size.x >= maxLength)
+            if (trapBody.localScale.x >= maxLength)
             {
                 //we note the time in order to leave the trap extended for a short while
                 trapExtending = false;
@@ -88,16 +93,14 @@ public class SpikeTrapController : MonoBehaviour
 
             //extend to the right by moving the center and changing the size
             //changing the size param increases the width on both sides of the center, therefore you need to shift the center
-            deathZone.offset += new Vector2(extensionSpeed * Time.fixedDeltaTime / 2, 0);
-            deathZone.size += new Vector2(extensionSpeed * Time.fixedDeltaTime, 0);
             //moving and changing the actual object
-            //trapBody.position += new Vector3(extensionSpeed * Time.fixedDeltaTime / 2, 0, 0);
-            //trapBody.localScale += new Vector3(extensionSpeed * Time.fixedDeltaTime, 0, 0);
+            trapBody.position += new Vector3(extensionSpeed * Time.fixedDeltaTime / 2, 0, 0);
+            trapBody.localScale += new Vector3(extensionSpeed * Time.fixedDeltaTime, 0, 0);
         }
 
         //In order for the trap to start retracting it must:
         //be extended (greater size than start) AND no longer be extending
-        if (trapExtending == false && deathZone.size.x >= minLength)
+        if (trapExtending == false && trapBody.localScale.x >= minLength)
         {
             //been the above conditions for a certain length of time
             if ((Time.time - trapExtendedTime >= timeExtended) && !trapRetracting)
@@ -110,7 +113,7 @@ public class SpikeTrapController : MonoBehaviour
         if (trapRetracting)
         {
             //check if trap is at minlength (done retracting)
-            if (deathZone.size.x <= minLength)
+            if (trapBody.localScale.x <= minLength)
             {
                 trapRetracting = false;
                 trapActivated = false;
@@ -118,11 +121,8 @@ public class SpikeTrapController : MonoBehaviour
                 return;
             }
             //similar logic to above
-            deathZone.offset -= new Vector2(retractionSpeed * Time.fixedDeltaTime / 2, 0);
-            deathZone.size -= new Vector2(retractionSpeed * Time.fixedDeltaTime, 0);
-
-            //trapBody.position -= new Vector3(retractionSpeed * Time.fixedDeltaTime / 2, 0, 0);
-            //trapBody.localScale -= new Vector3(retractionSpeed * Time.fixedDeltaTime, 0, 0);
+            trapBody.position -= new Vector3(retractionSpeed * Time.fixedDeltaTime / 2, 0, 0);
+            trapBody.localScale -= new Vector3(retractionSpeed * Time.fixedDeltaTime, 0, 0);
         }
     }
 }
