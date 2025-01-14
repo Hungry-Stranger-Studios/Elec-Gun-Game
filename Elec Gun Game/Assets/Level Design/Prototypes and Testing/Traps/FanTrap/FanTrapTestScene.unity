@@ -147,6 +147,14 @@ PrefabInstance:
       value: 6.03
       objectReference: {fileID: 0}
     - target: {fileID: 4609610173961286629, guid: 71f2822844aa5cc469d8836060de8571, type: 3}
+      propertyPath: maxForce
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4609610173961286629, guid: 71f2822844aa5cc469d8836060de8571, type: 3}
+      propertyPath: minForce
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4609610173961286629, guid: 71f2822844aa5cc469d8836060de8571, type: 3}
       propertyPath: linkedButton
       value: 
       objectReference: {fileID: 1061007188}
