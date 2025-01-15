@@ -68,13 +68,13 @@ public class LadderScript : MonoBehaviour
         if (playerLockedOn) 
         {
             climbPercent = ((playerTr.position.y - 1f) - ladderBottomPos) / (ladderTopPos - ladderBottomPos);
-            if (Input.GetKey(KeyCode.UpArrow)) 
+            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) 
             { 
                 if (climbPercent > 0.90f) { gettingOffAtTop = true; playerLockedOn = false; }
                 else { playerTr.Translate(new Vector3(0, 0.002f, 0)); }
             }
 
-            if (Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKey(KeyCode.DownArrow)|| Input.GetKey(KeyCode.S))
             {
                 if (climbPercent < 0.05f) { gettingOffAtBottom = true; playerLockedOn = false; }
                 else { playerTr.Translate(new Vector3(0, -0.002f, 0)); }
