@@ -153,11 +153,8 @@ public class PlayerMovement : MonoBehaviour
                 isDecelerating = false;
                 moveCancelled = false;
             }
-            //if the player changes their movement without cancelling it
-            if (context.performed)
-            {
-                //do something
-            }
+           
+
             //if the player releases movement input
             else if (context.canceled)
             {
