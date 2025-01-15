@@ -36,7 +36,7 @@ public class LadderScript : MonoBehaviour
     }
     private void Update()
     {
-        if (pm != null && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)))
+        if (pm != null && ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) || (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))))
         {
             //Stop player from moving, turn off their gravity, and set veloity to 0
             pm.DeactivePlayer();
@@ -56,9 +56,11 @@ public class LadderScript : MonoBehaviour
             }
             else
             {
+                float newYPos = (playerTr.position.y < transform.position.y) ? playerTr.position.y + 0.1f : playerTr.position.y - 0.1f;
+
                 playerTr.position = new Vector3(
                     Mathf.Lerp(playerTr.position.x, transform.position.x, 0.05f),
-                    Mathf.Lerp(playerTr.position.y, playerTr.position.y + 0.1f, 0.05f), 
+                    Mathf.Lerp(playerTr.position.y, newYPos, 0.05f), 
                     playerTr.position.z);
             }
         }
@@ -89,13 +91,14 @@ public class LadderScript : MonoBehaviour
         if (Mathf.Abs(playerTr.position.y - 1f - ladderTopPos) < 0.01f)
         {
             Debug.Log("player is off the ladder at the top");
+            pm.ActivatePlayer();
+            playerRb.gravityScale = 2;
+            gettingOffAtTop = false;
+            topCollider.enabled = true;
         }
         else
         {
-            playerTr.position = new Vector3(
-                playerTr.position.x,
-                Mathf.Lerp(playerTr.position.y - 1f, ladderTopPos, 0.05f),
-                playerTr.position.z);
+            playerTr.Translate(new Vector3(0, 0.002f, 0));
         }
     }
 
@@ -104,13 +107,14 @@ public class LadderScript : MonoBehaviour
         if (Mathf.Abs(playerTr.position.y - 1f - ladderBottomPos) < 0.01f)
         {
             Debug.Log("player is off the ladder at the bottom");
+            pm.ActivatePlayer();
+            playerRb.gravityScale = 2;
+            gettingOffAtBottom = false;
+            topCollider.enabled = true;
         }
         else
         {
-            playerTr.position = new Vector3(
-                playerTr.position.x,
-                Mathf.Lerp(playerTr.position.y - 1f, ladderBottomPos, 0.05f),
-                playerTr.position.z);
+            playerTr.Translate(new Vector3(0, -0.002f, 0));
         }
     }
 
