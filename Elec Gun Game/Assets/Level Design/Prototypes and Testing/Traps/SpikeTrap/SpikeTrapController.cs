@@ -13,7 +13,7 @@ public class SpikeTrapController : MonoBehaviour
 
     [Header("Trap Components")]
     [SerializeField] private DeathZone deathZone;
-    [SerializeField] private Transform trapBody;
+    [SerializeField] private Transform zoneTransform;
     [SerializeField] private ButtonController linkedButton;
 
 
@@ -33,7 +33,7 @@ public class SpikeTrapController : MonoBehaviour
         trapRetracting = false;
         trapActivated = false;
         trapExtendedTime = 0;
-        minLength = trapBody.localScale.x;
+        minLength = zoneTransform.localScale.y;
         extensionSpeed = (maxLength - minLength) / timeToExtension;
         retractionSpeed = (maxLength - minLength) / timeToRetraction;
     
@@ -55,7 +55,7 @@ public class SpikeTrapController : MonoBehaviour
             Debug.LogWarning("No DeathZone linked to trap!");
         }
 
-        if(trapBody == null)
+        if(zoneTransform == null)
         {
             Debug.LogWarning("No transform linked to trap!");
         }
@@ -82,7 +82,7 @@ public class SpikeTrapController : MonoBehaviour
         if (trapExtending)
         {
             //check if trap is at maxlength (done extending)
-            if (trapBody.localScale.x >= maxLength)
+            if (zoneTransform.localScale.y >= maxLength)
             {
                 //we note the time in order to leave the trap extended for a short while
                 trapExtending = false;
@@ -94,13 +94,13 @@ public class SpikeTrapController : MonoBehaviour
             //extend to the right by moving the center and changing the size
             //changing the size param increases the width on both sides of the center, therefore you need to shift the center
             //moving and changing the actual object
-            trapBody.position += new Vector3(extensionSpeed * Time.fixedDeltaTime / 2, 0, 0);
-            trapBody.localScale += new Vector3(extensionSpeed * Time.fixedDeltaTime, 0, 0);
+            zoneTransform.localPosition += new Vector3(0, extensionSpeed * Time.fixedDeltaTime / 2, 0);
+            zoneTransform.localScale += new Vector3(0, extensionSpeed * Time.fixedDeltaTime, 0);
         }
 
         //In order for the trap to start retracting it must:
         //be extended (greater size than start) AND no longer be extending
-        if (trapExtending == false && trapBody.localScale.x >= minLength)
+        if (trapExtending == false && zoneTransform.localScale.y >= minLength)
         {
             //been the above conditions for a certain length of time
             if ((Time.time - trapExtendedTime >= timeExtended) && !trapRetracting)
@@ -113,7 +113,7 @@ public class SpikeTrapController : MonoBehaviour
         if (trapRetracting)
         {
             //check if trap is at minlength (done retracting)
-            if (trapBody.localScale.x <= minLength)
+            if (zoneTransform.localScale.y <= minLength)
             {
                 trapRetracting = false;
                 trapActivated = false;
@@ -121,8 +121,13 @@ public class SpikeTrapController : MonoBehaviour
                 return;
             }
             //similar logic to above
-            trapBody.position -= new Vector3(retractionSpeed * Time.fixedDeltaTime / 2, 0, 0);
-            trapBody.localScale -= new Vector3(retractionSpeed * Time.fixedDeltaTime, 0, 0);
+            zoneTransform.localPosition -= new Vector3(0, retractionSpeed * Time.fixedDeltaTime / 2, 0);
+            zoneTransform.localScale -= new Vector3(0, retractionSpeed * Time.fixedDeltaTime, 0);
         }
+    }
+
+    public float getMaxLength()
+    {
+        return maxLength;
     }
 }
