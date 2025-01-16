@@ -15,7 +15,7 @@ public class SpikeTrapMask : MonoBehaviour
     public void Update()
     {
         float maxLength = parent.getMaxLength();
-        transform.localPosition = new Vector3(0, maxLength / 2, 0);
+        transform.localPosition = new Vector3(0, maxLength / 2 + 0.5f, 0);
         transform.localScale = new Vector2(1, maxLength);
     }
 }
