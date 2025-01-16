@@ -12,9 +12,9 @@ public class SpikeTrapController : MonoBehaviour
     [SerializeField] private float timeToRetraction = 1f;
 
     [Header("Trap Components")]
+    [SerializeField] private ButtonController linkedButton;
     [SerializeField] private DeathZone deathZone;
     [SerializeField] private Transform zoneTransform;
-    [SerializeField] private ButtonController linkedButton;
     [SerializeField] private Transform spriteTransform;
 
 

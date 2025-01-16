@@ -18,7 +18,7 @@ public class SpriteController : MonoBehaviour
         for(int i = 1; i < maxLen; i++)
         {
             GameObject newMidSprite = Instantiate(spriteMiddle, transform); //create a copy of the sprite
-            newMidSprite.transform.position -= new Vector3(0, i, 0); //shove the new sprite down in the scene
+            newMidSprite.transform.localPosition -= new Vector3(0, i, 0); //shove the new sprite down in the scene
         }
     }
 }
