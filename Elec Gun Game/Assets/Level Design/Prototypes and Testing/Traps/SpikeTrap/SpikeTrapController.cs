@@ -15,6 +15,7 @@ public class SpikeTrapController : MonoBehaviour
     [SerializeField] private DeathZone deathZone;
     [SerializeField] private Transform zoneTransform;
     [SerializeField] private ButtonController linkedButton;
+    [SerializeField] private Transform spriteTransform;
 
 
     private float minLength;
@@ -96,6 +97,8 @@ public class SpikeTrapController : MonoBehaviour
             //moving and changing the actual object
             zoneTransform.localPosition += new Vector3(0, extensionSpeed * Time.fixedDeltaTime / 2, 0);
             zoneTransform.localScale += new Vector3(0, extensionSpeed * Time.fixedDeltaTime, 0);
+
+            spriteTransform.localPosition += new Vector3(0, extensionSpeed * Time.fixedDeltaTime, 0);
         }
 
         //In order for the trap to start retracting it must:
@@ -123,6 +126,8 @@ public class SpikeTrapController : MonoBehaviour
             //similar logic to above
             zoneTransform.localPosition -= new Vector3(0, retractionSpeed * Time.fixedDeltaTime / 2, 0);
             zoneTransform.localScale -= new Vector3(0, retractionSpeed * Time.fixedDeltaTime, 0);
+
+            spriteTransform.localPosition -= new Vector3(0, retractionSpeed * Time.fixedDeltaTime, 0);
         }
     }
 
